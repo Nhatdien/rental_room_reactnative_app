@@ -1,0 +1,77 @@
+{
+  "expo": {
+    "name": "Ants Rental Room",
+    "slug": "rental-room-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/playstore-icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "remote-notification"
+        ],
+        "NSLocationWhenInUseUsageDescription": "This app uses location to show nearby rental properties on the map.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses location to show nearby rental properties on the map."
+      },
+      "config": {
+        "googleMapsApiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+      }
+    },
+    "android": {
+      "package": "com.ants.rentalroomapp",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/playstore-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE",
+        "USE_EXACT_ALARM",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+ "plugins": [
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps._some_id_here_"
+        }
+      ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMAPBOX_MAPS_DOWNLOAD_TOKEN": "sk.eyJ1IjoidGluaHNvbWEiLCJhIjoiY21oc3ZyeDh6MHp4azJzcjRvMnh3Y2hjcSJ9.dMpsDobmAX1HDLU4BrzBew"
+        }
+      ]
+    ],
+    "scheme": "rental-room-app",
+    "experiments": {
+      "tsconfigPaths": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ca73dec2-946c-4968-a5e5-b15f9cca8420"
+      }
+    },
+    "owner": "nhan12163"
+  }
+}
