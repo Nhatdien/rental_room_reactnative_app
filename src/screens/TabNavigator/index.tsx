@@ -193,7 +193,12 @@ const TabNavigator = () => {
                 ellipsizeMode="tail"
                 style={[styles.tabLabel, focused && styles.tabLabelActive]}
               >
-                {route.name}
+                {route.name === "Home" ? "Trang chủ" :
+                 route.name === "Favorites" ? "Yêu thích" :
+                 route.name === "Manage" ? "Quản lý" :
+                 route.name === "Message" ? "Tin nhắn" :
+                 route.name === "Profile" ? "Cá nhân" :
+                 route.name}
               </Text>
             </View>
           );

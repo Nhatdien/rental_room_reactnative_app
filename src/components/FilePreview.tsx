@@ -21,7 +21,7 @@ const FilePreview: React.FC<FilePreviewProps> = ({
   const handleViewFile = () => {
     Linking.openURL(googleViewerUrl).catch(() => {
       Linking.openURL(fileUrl).catch(() => {
-        alert("Cannot open file");
+        alert("Không thể mở tệp");
       });
     });
   };

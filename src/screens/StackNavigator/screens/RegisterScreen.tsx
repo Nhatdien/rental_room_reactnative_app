@@ -123,8 +123,8 @@ const RegisterScreen: React.FC = () => {
       Toast.show({
         type: "success",
         position: "top",
-        text1: "Registration Successful",
-        text2: "You have successfully registered.",
+        text1: "Đăng ký thành công",
+        text2: "Bạn đã đăng ký thành công.",
         visibilityTime: 4000,
         autoHide: true,
         topOffset: 50,
@@ -142,7 +142,7 @@ const RegisterScreen: React.FC = () => {
       // Handle message as array or string
       const displayMessage = Array.isArray(errorMessage)
         ? errorMessage[0]
-        : errorMessage || "Registration failed. Please try again.";
+        : errorMessage || "Đăng ký thất bại. Vui lòng thử lại.";
 
       showError(displayMessage);
     }

@@ -135,13 +135,13 @@ const RoomLocationMap: React.FC<RoomLocationMapProps> = ({
 
   const displayAddress = address
     ? `${address.street}, ${address.ward?.name}, ${address.ward?.district?.name}, ${address.ward?.district?.province?.name}`
-    : "Address not available";
+    : "Địa chỉ không có sẵn";
 
   return (
     <View style={styles.section}>
       <View style={styles.sectionHeader}>
         <Ionicons name="location-outline" size={24} color="#4f46e5" />
-        <Text style={styles.sectionTitle}>Location</Text>
+        <Text style={styles.sectionTitle}>Vị trí</Text>
       </View>
 
       {/* Address Display */}
@@ -194,10 +194,10 @@ const RoomLocationMap: React.FC<RoomLocationMapProps> = ({
 
       <TouchableOpacity style={styles.mapButton} onPress={handleOpenGoogleMaps}>
         <Ionicons name="open-outline" size={18} color="#4f46e5" />
-        <Text style={styles.mapButtonText}>Open in Google Maps</Text>
+        <Text style={styles.mapButtonText}>Mở trong Google Maps</Text>
       </TouchableOpacity>
     </View>
-  );
+  )
 };
 
 const styles = StyleSheet.create({

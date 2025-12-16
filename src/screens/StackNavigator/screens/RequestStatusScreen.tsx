@@ -88,8 +88,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
       console.error("Error loading requests:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: error.message || "Failed to load requests",
+        text1: "Lỗi",
+        text2: error.message || "Không thể tải yêu cầu",
       });
     } finally {
       setLoading(false);
@@ -106,8 +106,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
     if (request.status !== 0) {
       Toast.show({
         type: "info",
-        text1: "Cannot Edit",
-        text2: "Only 'Not Processed' requests can be edited",
+        text1: "Không thể chỉnh sửa",
+        text2: "Chỉ có thể chỉnh sửa yêu cầu 'Chưa xử lý'",
       });
       return;
     }
@@ -126,8 +126,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
       if (!permissionResult.granted) {
         Toast.show({
           type: "error",
-          text1: "Permission Required",
-          text2: "Please allow access to your photo library",
+          text1: "Yêu cầu quyền truy cập",
+          text2: "Vui lòng cho phép truy cập thư viện ảnh của bạn",
         });
         return;
       }
@@ -146,8 +146,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
       console.error("Error picking image:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Failed to pick image",
+        text1: "Lỗi",
+        text2: "Không thể chọn ảnh",
       });
     }
   };
@@ -261,7 +261,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
           <Ionicons name="document-text" size={24} color="#4A90E2" />
           <View style={{ flex: 1 }}>
             <Text style={styles.requestTitle}>
-              {request.roomTitle || "Room Request"}
+              {request.roomTitle || "Yêu cầu phòng"}
             </Text>
             <Text style={styles.requestType}>
               {request.userName} • {request.email}

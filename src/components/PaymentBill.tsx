@@ -98,7 +98,7 @@ const PaymentBill = ({
           error?.response?.data?.message ||
           error?.response?.data?.error ||
           error?.message ||
-          "Failed to upload image";
+          "Không thể tải ảnh lên";
 
         Toast.show({
           type: "error",

@@ -62,13 +62,13 @@ const TestLogin: React.FC = () => {
         );
       } catch (error) {
         console.error("Error decoding token:", error);
-        Alert.alert("Login Failed", "Error decoding token");
+        Alert.alert("Đăng nhập thất bại", "Lỗi giải mã token");
       }
     } else if (response.type === "dismiss") {
       console.log("⚠️ Login dismissed by user");
     } else if (response.type === "error") {
       console.error("Login error:", response);
-      Alert.alert("Login Failed", response.error?.message || "Unknown error");
+      Alert.alert("Đăng nhập thất bại", response.error?.message || "Lỗi không xác định");
     }
   }, [response]);
 

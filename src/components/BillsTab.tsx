@@ -188,20 +188,36 @@ const BillsTab: React.FC<BillsTabProps> = ({
         if (canOpen) {
           await Linking.openURL(response);
         } else {
-          Alert.alert("Error", "Cannot open PDF URL");
+          Alert.alert("Lỗi", "Không thể mở URL PDF");
         }
       } else {
-        Alert.alert("Error", "Failed to get bill PDF URL");
+        Alert.alert("Lỗi", "Không thể lấy URL PDF hóa đơn");
       }
     } catch (error) {
       console.error("Error downloading bill proof:", error);
-      Alert.alert("Error", "Failed to download bill proof");
+      Alert.alert("Lỗi", "Không thể tải chứng từ hóa đơn");
     }
   };
   const handlePay = (bill: Bill) => {
     setSelectedBill(bill);
     setPaymentModal(true);
   };
+  
+  const getFilterLabel = (filter: string) => {
+    switch (filter) {
+      case "All":
+        return "Tất cả";
+      case "PAID":
+        return "Đã thanh toán";
+      case "PENDING":
+        return "Chờ thanh toán";
+      case "CONFIRMING":
+        return "Đang xác nhận";
+      default:
+        return filter;
+    }
+  };
+  
   const getStatusColor = (status: string) => {
     switch (status) {
       case "PAID":
@@ -321,7 +337,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
                   selectedFilter === filter && styles.filterChipTextActive,
                 ]}
               >
-                {filter}
+                {getFilterLabel(filter)}
               </Text>
             </TouchableOpacity>
           ))}

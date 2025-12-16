@@ -221,18 +221,18 @@ const RoomCard: React.FC<RoomCardProps> = ({
             </View>
             <View>
               <Text style={styles.ownerName}>
-                {room.landlord?.landlordProfile?.fullName || "Unknown Owner"}
+                {room.landlord?.landlordProfile?.fullName || "Chủ nhà không rõ"}
               </Text>
             </View>
           </View>
 
           <View style={styles.contactContainer}>
             <View style={styles.onlineStatus} />
-            <Text style={styles.contactText}>Contact</Text>
+            <Text style={styles.contactText}>Liên hệ</Text>
             <Text style={styles.phoneNumber}>
               {room.landlord?.landlordProfile?.phoneNumber ||
                 room.landlord?.landlordProfile?.email ||
-                "No contact"}
+                "Không có liên hệ"}
             </Text>
           </View>
         </View>

@@ -396,7 +396,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
   };
 
   const getRelationshipText = (relationship: string) => {
-    return relationship || "Other";
+    return relationship || "Khác";
   };
 
   const getStatusColor = (status: string) => {
@@ -556,7 +556,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
           <Ionicons name="search" size={20} color="#999" />
           <TextInput
             style={styles.searchInput}
-            placeholder="Search by name"
+            placeholder="Tìm kiếm theo tên"
             placeholderTextColor="#999"
             value={searchQuery}
             onChangeText={setSearchQuery}
@@ -573,18 +573,18 @@ const ResidentsScreen = ({ navigation }: Props) => {
         {loading ? (
           <View style={styles.emptyContainer}>
             <ActivityIndicator size="large" color="#4A90E2" />
-            <Text style={styles.emptyText}>Loading residents...</Text>
+            <Text style={styles.emptyText}>Đang tải danh sách cư dân...</Text>
           </View>
         ) : filteredResidents.length === 0 ? (
           <View style={styles.emptyContainer}>
             <Ionicons name="people-outline" size={64} color="#ccc" />
             <Text style={styles.emptyText}>
-              {searchQuery ? "No residents found" : "No residents"}
+              {searchQuery ? "Không tìm thấy cư dân" : "Chưa có cư dân"}
             </Text>
             <Text style={styles.emptySubtext}>
               {searchQuery
-                ? "Try a different search term"
-                : "Your roommates will appear here"}
+                ? "Thử từ khóa tìm kiếm khác"
+                : "Người cùng phòng của bạn sẽ xuất hiện ở đây"}
             </Text>
           </View>
         ) : (
@@ -623,7 +623,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
             <SafeAreaView>
               <View style={styles.modalContent}>
                 <View style={styles.modalHeader}>
-                  <Text style={styles.modalTitle}>Add Resident</Text>
+                  <Text style={styles.modalTitle}>Thêm cư dân</Text>
                   <TouchableOpacity onPress={() => setShowAddModal(false)}>
                     <Ionicons name="close" size={24} color="#333" />
                   </TouchableOpacity>
@@ -635,7 +635,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                   </Text>
                   <TextInput
                     style={styles.input}
-                    placeholder="Enter full name"
+                    placeholder="Nhập họ và tên đầy đủ"
                     value={formData.fullName}
                     onChangeText={(text) =>
                       setFormData({ ...formData, fullName: text })
@@ -647,7 +647,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                   </Text>
                   <TextInput
                     style={styles.input}
-                    placeholder="Enter 12-digit ID number"
+                    placeholder="Nhập số CMND/CCCD 12 chữ số"
                     value={formData.idNumber}
                     onChangeText={(text) =>
                       setFormData({ ...formData, idNumber: text })
@@ -657,7 +657,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                   />
 
                   <Text style={styles.inputLabel}>
-                    Relationship <Text style={styles.required}>*</Text>
+                    Quan hệ <Text style={styles.required}>*</Text>
                   </Text>
                   <View style={styles.pickerContainer}>
                     <Picker
@@ -667,13 +667,13 @@ const ResidentsScreen = ({ navigation }: Props) => {
                       }
                       style={styles.picker}
                     >
-                      <Picker.Item label="MySelf" value="MySelf" />
-                      <Picker.Item label="Wife/Husband" value="Wife/Husband" />
-                      <Picker.Item label="Child" value="Child" />
-                      <Picker.Item label="Parent" value="Parent" />
-                      <Picker.Item label="Sibling" value="Sibling" />
-                      <Picker.Item label="Friend" value="Friend" />
-                      <Picker.Item label="Other" value="Other" />
+                      <Picker.Item label="Bản thân" value="MySelf" />
+                      <Picker.Item label="Vợ/Chồng" value="Wife/Husband" />
+                      <Picker.Item label="Con" value="Child" />
+                      <Picker.Item label="Bố/Mẹ" value="Parent" />
+                      <Picker.Item label="Anh/Chị/Em" value="Sibling" />
+                      <Picker.Item label="Bạn bè" value="Friend" />
+                      <Picker.Item label="Khác" value="Other" />
                     </Picker>
                   </View>
 
@@ -689,7 +689,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                       />
                     ) : availableContracts.length === 0 ? (
                       <Text style={styles.noContractsText}>
-                        No contracts available. Please create a contract first.
+                        Không có hợp đồng nào. Vui lòng tạo hợp đồng trước.
                       </Text>
                     ) : (
                       <Picker
@@ -699,12 +699,12 @@ const ResidentsScreen = ({ navigation }: Props) => {
                         }
                         style={styles.picker}
                       >
-                        <Picker.Item label="Select a contract" value="" />
+                        <Picker.Item label="Chọn hợp đồng" value="" />
                         {availableContracts.map((contract) => (
                           <Picker.Item
                             key={contract.id}
-                            label={`${contract.roomTitle || "Unknown Room"} - ${
-                              contract.contractName || "No Contract Name"
+                            label={`${contract.roomTitle || "Phòng không xác định"} - ${
+                              contract.contractName || "Không có tên hợp đồng"
                             }`}
                             value={contract.id}
                           />
@@ -762,7 +762,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
 
                   {/* ID Card Upload */}
                   <Text style={styles.inputLabel}>
-                    ID Card Images (Optional)
+                    Hình ảnh CMND/CCCD (Tùy chọn)
                   </Text>
                   <View style={styles.imageUploadContainer}>
                     <TouchableOpacity
@@ -771,12 +771,12 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     >
                       {frontImageUri ? (
                         <View style={styles.imagePreviewContainer}>
-                          <Text style={styles.imagePreviewText}>Front ✓</Text>
+                          <Text style={styles.imagePreviewText}>Mặt trước ✓</Text>
                         </View>
                       ) : (
                         <>
                           <Ionicons name="camera" size={24} color="#4A90E2" />
-                          <Text style={styles.imageUploadText}>Front ID</Text>
+                          <Text style={styles.imageUploadText}>CMND/CCCD mặt trước</Text>
                         </>
                       )}
                     </TouchableOpacity>
@@ -787,21 +787,21 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     >
                       {backImageUri ? (
                         <View style={styles.imagePreviewContainer}>
-                          <Text style={styles.imagePreviewText}>Back ✓</Text>
+                          <Text style={styles.imagePreviewText}>Mặt sau ✓</Text>
                         </View>
                       ) : (
                         <>
                           <Ionicons name="camera" size={24} color="#4A90E2" />
-                          <Text style={styles.imageUploadText}>Back ID</Text>
+                          <Text style={styles.imageUploadText}>CMND/CCCD mặt sau</Text>
                         </>
                       )}
                     </TouchableOpacity>
                   </View>
 
-                  <Text style={styles.inputLabel}>Note</Text>
+                  <Text style={styles.inputLabel}>Ghi chú</Text>
                   <TextInput
                     style={[styles.input, styles.textArea]}
-                    placeholder="Enter note"
+                    placeholder="Nhập ghi chú"
                     value={formData.note}
                     onChangeText={(text) =>
                       setFormData({ ...formData, note: text })
@@ -816,7 +816,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     style={styles.cancelButton}
                     onPress={() => setShowAddModal(false)}
                   >
-                    <Text style={styles.cancelButtonText}>Cancel</Text>
+                    <Text style={styles.cancelButtonText}>Hủy</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={styles.submitButton}
@@ -826,7 +826,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     {loading ? (
                       <ActivityIndicator color="#fff" />
                     ) : (
-                      <Text style={styles.submitButtonText}>Add Resident</Text>
+                      <Text style={styles.submitButtonText}>Thêm cư dân</Text>
                     )}
                   </TouchableOpacity>
                 </View>
@@ -851,7 +851,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
             <SafeAreaView>
               <View style={styles.modalContent}>
                 <View style={styles.modalHeader}>
-                  <Text style={styles.modalTitle}>Edit Resident</Text>
+                  <Text style={styles.modalTitle}>Chỉnh sửa cư dân</Text>
                   <TouchableOpacity onPress={() => setShowEditModal(false)}>
                     <Ionicons name="close" size={24} color="#333" />
                   </TouchableOpacity>
@@ -859,11 +859,11 @@ const ResidentsScreen = ({ navigation }: Props) => {
 
                 <ScrollView style={styles.modalBody}>
                   <Text style={styles.inputLabel}>
-                    Full Name <Text style={styles.required}>*</Text>
+                    Họ và tên <Text style={styles.required}>*</Text>
                   </Text>
                   <TextInput
                     style={styles.input}
-                    placeholder="Enter full name"
+                    placeholder="Nhập họ và tên đầy đủ"
                     value={formData.fullName}
                     onChangeText={(text) =>
                       setFormData({ ...formData, fullName: text })
@@ -871,11 +871,11 @@ const ResidentsScreen = ({ navigation }: Props) => {
                   />
 
                   <Text style={styles.inputLabel}>
-                    ID Number <Text style={styles.required}>*</Text>
+                    Số CMND/CCCD <Text style={styles.required}>*</Text>
                   </Text>
                   <TextInput
                     style={styles.input}
-                    placeholder="Enter 12-digit ID number"
+                    placeholder="Nhập số CMND/CCCD 12 chữ số"
                     value={formData.idNumber}
                     onChangeText={(text) =>
                       setFormData({ ...formData, idNumber: text })
@@ -885,7 +885,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                   />
 
                   <Text style={styles.inputLabel}>
-                    Relationship <Text style={styles.required}>*</Text>
+                    Quan hệ <Text style={styles.required}>*</Text>
                   </Text>
                   <View style={styles.pickerContainer}>
                     <Picker
@@ -895,24 +895,24 @@ const ResidentsScreen = ({ navigation }: Props) => {
                       }
                       style={styles.picker}
                     >
-                      <Picker.Item label="MySelf" value="MySelf" />
-                      <Picker.Item label="Wife/Husband" value="Wife/Husband" />
-                      <Picker.Item label="Child" value="Child" />
+                      <Picker.Item label="Bản thân" value="MySelf" />
+                      <Picker.Item label="Vợ/Chồng" value="Wife/Husband" />
+                      <Picker.Item label="Con" value="Child" />
                       <Picker.Item
-                        label="Father/Mother"
+                        label="Bố/Mẹ"
                         value="Father/Mother"
                       />
                       <Picker.Item
-                        label="Brother/Sister"
+                        label="Anh/Chị/Em"
                         value="Brother/Sister"
                       />
-                      <Picker.Item label="Friend" value="Friend" />
-                      <Picker.Item label="Other" value="Other" />
+                      <Picker.Item label="Bạn bè" value="Friend" />
+                      <Picker.Item label="Khác" value="Other" />
                     </Picker>
                   </View>
 
                   <Text style={styles.inputLabel}>
-                    Start Date <Text style={styles.required}>*</Text>
+                    Ngày bắt đầu <Text style={styles.required}>*</Text>
                   </Text>
                   <TouchableOpacity
                     style={styles.datePickerButton}
@@ -922,7 +922,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     <Text style={styles.datePickerText}>
                       {formData.startDate
                         ? new Date(formData.startDate).toLocaleDateString()
-                        : "Select start date"}
+                        : "Chọn ngày bắt đầu"}
                     </Text>
                   </TouchableOpacity>
                   {showStartDatePicker && (
@@ -935,7 +935,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                   )}
 
                   <Text style={styles.inputLabel}>
-                    End Date <Text style={styles.required}>*</Text>
+                    Ngày kết thúc <Text style={styles.required}>*</Text>
                   </Text>
                   <TouchableOpacity
                     style={styles.datePickerButton}
@@ -945,7 +945,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     <Text style={styles.datePickerText}>
                       {formData.endDate
                         ? new Date(formData.endDate).toLocaleDateString()
-                        : "Select end date"}
+                        : "Chọn ngày kết thúc"}
                     </Text>
                   </TouchableOpacity>
                   {showEndDatePicker && (
@@ -960,7 +960,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
 
                   {/* ID Card Upload */}
                   <Text style={styles.inputLabel}>
-                    ID Card Images (Optional)
+                    Hình ảnh CMND/CCCD (Tùy chọn)
                   </Text>
                   <View style={styles.imageUploadContainer}>
                     <TouchableOpacity
@@ -969,12 +969,12 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     >
                       {frontImageUri ? (
                         <View style={styles.imagePreviewContainer}>
-                          <Text style={styles.imagePreviewText}>Front ✓</Text>
+                          <Text style={styles.imagePreviewText}>Mặt trước ✓</Text>
                         </View>
                       ) : (
                         <>
                           <Ionicons name="camera" size={24} color="#4A90E2" />
-                          <Text style={styles.imageUploadText}>Front ID</Text>
+                          <Text style={styles.imageUploadText}>CMND/CCCD mặt trước</Text>
                         </>
                       )}
                     </TouchableOpacity>
@@ -985,21 +985,21 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     >
                       {backImageUri ? (
                         <View style={styles.imagePreviewContainer}>
-                          <Text style={styles.imagePreviewText}>Back ✓</Text>
+                          <Text style={styles.imagePreviewText}>Mặt sau ✓</Text>
                         </View>
                       ) : (
                         <>
                           <Ionicons name="camera" size={24} color="#4A90E2" />
-                          <Text style={styles.imageUploadText}>Back ID</Text>
+                          <Text style={styles.imageUploadText}>CMND/CCCD mặt sau</Text>
                         </>
                       )}
                     </TouchableOpacity>
                   </View>
 
-                  <Text style={styles.inputLabel}>Note</Text>
+                  <Text style={styles.inputLabel}>Ghi chú</Text>
                   <TextInput
                     style={[styles.input, styles.textArea]}
-                    placeholder="Enter note"
+                    placeholder="Nhập ghi chú"
                     value={formData.note}
                     onChangeText={(text) =>
                       setFormData({ ...formData, note: text })
@@ -1014,7 +1014,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                     style={styles.cancelButton}
                     onPress={() => setShowEditModal(false)}
                   >
-                    <Text style={styles.cancelButtonText}>Cancel</Text>
+                    <Text style={styles.cancelButtonText}>Hủy</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={styles.submitButton}
@@ -1025,7 +1025,7 @@ const ResidentsScreen = ({ navigation }: Props) => {
                       <ActivityIndicator color="#fff" />
                     ) : (
                       <Text style={styles.submitButtonText}>
-                        Update Resident
+                        Cập nhật cư dân
                       </Text>
                     )}
                   </TouchableOpacity>

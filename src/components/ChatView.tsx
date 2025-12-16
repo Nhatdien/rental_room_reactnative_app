@@ -48,11 +48,11 @@ const MessageText = ({ text, style }: { text: string; style: any }) => {
       if (supported) {
         await Linking.openURL(url);
       } else {
-        Alert.alert("Error", "Cannot open this URL");
+        Alert.alert("Lỗi", "Không thể mở URL này");
       }
     } catch (error) {
       console.error("Error opening URL:", error);
-      Alert.alert("Error", "Failed to open link");
+      Alert.alert("Lỗi", "Không thể mở liên kết");
     }
   };
 
@@ -318,8 +318,8 @@ export const ChatView: React.FC<ChatViewProps> = ({
         await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== "granted") {
         Alert.alert(
-          "Permission required",
-          "Please allow access to your photos to send images."
+          "Yêu cầu quyền truy cập",
+          "Vui lòng cho phép truy cập ảnh của bạn để gửi hình ảnh."
         );
         return;
       }
@@ -336,7 +336,7 @@ export const ChatView: React.FC<ChatViewProps> = ({
       await sendImageMessage(userId, partnerId, uri);
     } catch (err) {
       console.error("pickImageAndSend error", err);
-      Alert.alert("Upload failed", "Could not send image. Please try again.");
+      Alert.alert("Tải lên thất bại", "Không thể gửi hình ảnh. Vui lòng thử lại.");
     } finally {
       setUploadingImage(false);
     }

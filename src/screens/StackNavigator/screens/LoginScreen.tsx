@@ -142,7 +142,7 @@ const LoginScreen: React.FC = () => {
     Toast.show({
       type: "error",
       position: "top",
-      text1: "Authentication Error",
+      text1: "Lỗi xác thực",
       text2: msg,
       visibilityTime: 4000,
       autoHide: true,
@@ -205,7 +205,7 @@ const LoginScreen: React.FC = () => {
       });
     } catch (error: any) {
       // For unexpected errors not handled by the store
-      const errorMessage = "An unexpected error occurred. Please try again.";
+      const errorMessage = "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.";
       showError(errorMessage);
     }
   };
@@ -226,7 +226,7 @@ const LoginScreen: React.FC = () => {
       });
     } catch (error: any) {
       console.error("Google Sign-in error:", error);
-      showError("Google Sign-in failed: " + (error.message || "Unknown error"));
+      showError("Đăng nhập Google thất bại: " + (error.message || "Lỗi không xác định"));
     }
   };
 

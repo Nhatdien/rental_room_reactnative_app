@@ -405,8 +405,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
     if (!userId) {
       Toast.show({
         type: "error",
-        text1: "Login Required",
-        text2: "Please log in to save your search preferences.",
+        text1: "Yêu cầu đăng nhập",
+        text2: "Vui lòng đăng nhập để lưu tùy chọn tìm kiếm của bạn.",
         position: "top",
       });
       return;
@@ -423,9 +423,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
       if (status !== "granted") {
         Toast.show({
           type: "error",
-          text1: "Permission Denied",
+          text1: "Từ chối quyền",
           text2:
-            "Please grant location permission to save your current location.",
+            "Vui lòng cấp quyền vị trí để lưu vị trí hiện tại của bạn.",
           position: "top",
         });
         setSavingPreferences(false);
@@ -455,8 +455,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
         // Show detailed error with option to continue
         Toast.show({
           type: "error",
-          text1: "Address Lookup Failed",
-          text2: "Using coordinates instead. You can save manually later.",
+          text1: "Tra cứu địa chỉ thất bại",
+          text2: "Sử dụng tọa độ thay thế. Bạn có thể lưu thủ công sau.",
           position: "top",
           visibilityTime: 4000,
         });
@@ -541,7 +541,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
       Toast.show({
         type: "success",
-        text1: "Success",
+        text1: "Thành công",
         text2: `Saved and searching near: ${formattedAddress}`,
         position: "top",
       });
@@ -562,22 +562,22 @@ const SearchBar: React.FC<SearchBarProps> = ({
       if (error.code === "E_LOCATION_SERVICES_DISABLED") {
         Toast.show({
           type: "error",
-          text1: "Location Disabled",
-          text2: "Please enable location services.",
+          text1: "Vị trí bị tắt",
+          text2: "Vui lòng bật dịch vụ định vị.",
           position: "top",
         });
       } else if (error.code === "E_LOCATION_TIMEOUT") {
         Toast.show({
           type: "error",
-          text1: "Timeout",
-          text2: "Location request timed out. Please try again.",
+          text1: "Hết thời gian",
+          text2: "Yêu cầu vị trí đã hết thời gian. Vui lòng thử lại.",
           position: "top",
         });
       } else {
         Toast.show({
           type: "error",
           text1: "Error",
-          text2: "Failed to get current location. Please try again.",
+          text2: "Không thể lấy vị trí hiện tại. Vui lòng thử lại.",
           position: "top",
         });
       }

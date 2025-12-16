@@ -166,7 +166,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
             {isActive() && (
               <View style={styles.activeBadge}>
                 <View style={styles.activeDot} />
-                <Text style={styles.activeBadgeText}>Active</Text>
+                <Text style={styles.activeBadgeText}>Đang hoạt động</Text>
               </View>
             )}
           </View>
@@ -174,17 +174,17 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
 
         {/* Information Card */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Personal Information</Text>
+          <Text style={styles.cardTitle}>Thông tin cá nhân</Text>
 
           <View style={styles.infoRow}>
             <Ionicons name="card" size={20} color="#4A90E2" />
-            <Text style={styles.infoLabel}>ID Number</Text>
+            <Text style={styles.infoLabel}>Số CMND/CCCD</Text>
             <Text style={styles.infoValue}>{resident.idNumber}</Text>
           </View>
 
           <View style={styles.infoRow}>
             <Ionicons name="calendar" size={20} color="#4A90E2" />
-            <Text style={styles.infoLabel}>Start Date</Text>
+            <Text style={styles.infoLabel}>Ngày bắt đầu</Text>
             <Text style={styles.infoValue}>
               {new Date(resident.startDate).toLocaleDateString()}
             </Text>
@@ -192,7 +192,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
 
           <View style={styles.infoRow}>
             <Ionicons name="calendar-outline" size={20} color="#4A90E2" />
-            <Text style={styles.infoLabel}>End Date</Text>
+            <Text style={styles.infoLabel}>Ngày kết thúc</Text>
             <Text style={styles.infoValue}>
               {new Date(resident.endDate).toLocaleDateString()}
             </Text>
@@ -201,7 +201,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
           {resident.note && (
             <View style={styles.infoRow}>
               <Ionicons name="document-text" size={20} color="#4A90E2" />
-              <Text style={styles.infoLabel}>Note</Text>
+              <Text style={styles.infoLabel}>Ghi chú</Text>
               <Text style={styles.infoValue}>{resident.note}</Text>
             </View>
           )}
@@ -214,7 +214,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
 
             {resident.idCardFrontUrl && (
               <View style={styles.imageSection}>
-                <Text style={styles.imageLabel}>Front Side</Text>
+                <Text style={styles.imageLabel}>Mặt trước</Text>
                 <Image
                   source={{ uri: getCloudinaryUrl(resident.idCardFrontUrl) }}
                   style={styles.idCardImage}
@@ -225,7 +225,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
 
             {resident.idCardBackUrl && (
               <View style={styles.imageSection}>
-                <Text style={styles.imageLabel}>Back Side</Text>
+                <Text style={styles.imageLabel}>Mặt sau</Text>
                 <Image
                   source={{ uri: getCloudinaryUrl(resident.idCardBackUrl) }}
                   style={styles.idCardImage}
@@ -238,19 +238,19 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
 
         {/* Contract Info */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Contract Information</Text>
+          <Text style={styles.cardTitle}>Thông tin hợp đồng</Text>
 
           {loadingContract ? (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="small" color="#4A90E2" />
-              <Text style={styles.loadingText}>Loading contract info...</Text>
+              <Text style={styles.loadingText}>Đang tải thông tin hợp đồng...</Text>
             </View>
           ) : contractInfo ? (
             <>
               {contractInfo.contractName && (
                 <View style={styles.infoRow}>
                   <Ionicons name="document-text" size={20} color="#4A90E2" />
-                  <Text style={styles.infoLabel}>Contract Name</Text>
+                  <Text style={styles.infoLabel}>Tên hợp đồng</Text>
                   <Text style={styles.infoValue}>
                     {contractInfo.contractName}
                   </Text>
@@ -268,7 +268,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
               {contractInfo.roomAddress && (
                 <View style={styles.infoRow}>
                   <Ionicons name="location" size={20} color="#4A90E2" />
-                  <Text style={styles.infoLabel}>Address</Text>
+                  <Text style={styles.infoLabel}>Địa chỉ</Text>
                   <Text style={styles.infoValue}>
                     {contractInfo.roomAddress}
                   </Text>
@@ -278,7 +278,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
               {contractInfo.monthlyRent && (
                 <View style={styles.infoRow}>
                   <Ionicons name="cash" size={20} color="#4CAF50" />
-                  <Text style={styles.infoLabel}>Monthly Rent</Text>
+                  <Text style={styles.infoLabel}>Tiền thuê hàng tháng</Text>
                   <Text style={[styles.infoValue, styles.priceText]}>
                     {contractInfo.monthlyRent.toLocaleString("vi-VN")} ₫
                   </Text>
@@ -288,7 +288,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
               {contractInfo.startDate && contractInfo.endDate && (
                 <View style={styles.infoRow}>
                   <Ionicons name="calendar" size={20} color="#4A90E2" />
-                  <Text style={styles.infoLabel}>Contract Period</Text>
+                  <Text style={styles.infoLabel}>Thời hạn hợp đồng</Text>
                   <Text style={styles.infoValue}>
                     {new Date(contractInfo.startDate).toLocaleDateString()} -{" "}
                     {new Date(contractInfo.endDate).toLocaleDateString()}
@@ -298,7 +298,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
 
               <View style={styles.infoRow}>
                 <Ionicons name="document" size={20} color="#4A90E2" />
-                <Text style={styles.infoLabel}>Contract ID</Text>
+                <Text style={styles.infoLabel}>Mã hợp đồng</Text>
                 <Text style={styles.infoValue} numberOfLines={1}>
                   {resident.contractId}
                 </Text>
@@ -307,7 +307,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
           ) : (
             <View style={styles.infoRow}>
               <Ionicons name="document" size={20} color="#4A90E2" />
-              <Text style={styles.infoLabel}>Contract ID</Text>
+              <Text style={styles.infoLabel}>Mã hợp đồng</Text>
               <Text style={styles.infoValue} numberOfLines={1}>
                 {resident.contractId}
               </Text>

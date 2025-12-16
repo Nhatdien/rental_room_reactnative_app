@@ -451,9 +451,9 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
       ) : (
         <View style={styles.emptyContainer}>
           <MapPin size={32} color="#d1d5db" />
-          <Text style={styles.emptyTitle}>No nearby places found</Text>
+          <Text style={styles.emptyTitle}>Không tìm thấy địa điểm gần đây</Text>
           <Text style={styles.emptySubtitle}>
-            Address may be inaccurate or area data unavailable
+            Địa chỉ có thể không chính xác hoặc dữ liệu khu vực không khả dụng
           </Text>
         </View>
       )}

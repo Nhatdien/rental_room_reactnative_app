@@ -44,7 +44,6 @@ export interface AuthState {
 const STORAGE_KEY = "auth-storage";
 
 export const useAuthStore = create<AuthState>()(
-  // @ts-expect-error - Zustand v4 middleware type inference limitation
   devtools(
     persist(
       (set) => ({
@@ -101,9 +100,9 @@ export const useAuthStore = create<AuthState>()(
                 error: "No permission",
               });
               if (onError)
-                onError("You do not have permission to access this area.");
+                onError("Bạn không có quyền truy cập khu vực này.");
               return Promise.reject(
-                "You do not have permission to access this area."
+                "Bạn không có quyền truy cập khu vực này."
               );
             }
 
@@ -190,9 +189,9 @@ export const useAuthStore = create<AuthState>()(
                 error: "No permission",
               });
               if (onError)
-                onError("You do not have permission to access this area.");
+                onError("Bạn không có quyền truy cập khu vực này.");
               return Promise.reject(
-                "You do not have permission to access this area."
+                "Bạn không có quyền truy cập khu vực này."
               );
             }
 
@@ -205,7 +204,7 @@ export const useAuthStore = create<AuthState>()(
               status: error?.response?.status,
             });
 
-            let message = "Google login failed";
+            let message = "Đăng nhập Google thất bại";
             if (error?.response) {
               const data = error.response.data;
               if (Array.isArray(data?.errors) && data.errors.length > 0) {

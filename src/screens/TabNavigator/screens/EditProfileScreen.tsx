@@ -39,14 +39,14 @@ type Props = NativeStackScreenProps<RootStackParamList, "EditProfileScreen">;
 const schema = yup.object({
   fullName: yup
     .string()
-    .required("Full name is required")
-    .min(2, "Full name must be at least 2 characters"),
+    .required("Họ và tên là bắt buộc")
+    .min(2, "Họ và tên phải có ít nhất 2 ký tự"),
   phoneNumber: yup
     .string()
     .optional()
     .test(
       "is-valid-phone",
-      "Phone number must be 10-11 digits",
+      "Số điện thoại phải có 10-11 chữ số",
       function (value) {
         if (!value || value.trim() === "") return true; // Allow empty
         return /^[0-9]{10,11}$/.test(value);
@@ -54,8 +54,8 @@ const schema = yup.object({
     ),
   email: yup
     .string()
-    .required("Email is required")
-    .email("Please enter a valid email"),
+    .required("Email là bắt buộc")
+    .email("Vui lòng nhập địa chỉ email hợp lệ"),
   province: yup.string().optional(),
   district: yup.string().optional(),
   ward: yup.string().optional(),
@@ -252,8 +252,8 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
     if (filledFields.length > 0 && filledFields.length < 4) {
       showToast(
         "error",
-        "Address Incomplete",
-        "If you fill any address field, all address fields (Province, District, Ward, Address) must be completed"
+        "Địa chỉ chưa đầy đủ",
+        "Nếu bạn điền bất kỳ trường địa chỉ nào, tất cả các trường địa chỉ (Tỉnh/Thành phố, Quận/Huyện, Phường/Xã, Địa chỉ) phải được hoàn tất"
       );
       return;
     }
@@ -313,7 +313,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
         route.params.onProfileUpdated(result.data || result);
       }
 
-      showToast("success", "Success", "Profile updated successfully");
+      showToast("success", "Thành công", "Hồ sơ đã được cập nhật thành công");
       navigation.goBack();
     } catch (error: any) {
       const errorMessage =
@@ -322,7 +322,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
         error.message ||
         "Failed to update profile";
 
-      showToast("error", "Update Failed", errorMessage);
+      showToast("error", "Cập nhật thất bại", errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -335,15 +335,15 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
   const handleUploadImage = () => {
     Alert.alert("Chọn ảnh", "Chọn một tùy chọn", [
       {
-        text: "Camera",
+        text: "Máy ảnh",
         onPress: openCamera,
       },
       {
-        text: "Gallery",
+        text: "Thư viện",
         onPress: openImageLibrary,
       },
       {
-        text: "Cancel",
+        text: "Hủy",
         style: "cancel",
       },
     ]);
@@ -358,7 +358,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
         showToast(
           "error",
           "Permission denied",
-          "Camera permission is required to take photos"
+          "Yêu cầu quyền máy ảnh để chụp ảnh"
         );
         return;
       }
@@ -372,11 +372,11 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
 
       if (!result.canceled && result.assets[0]) {
         setSelectedImage(result.assets[0].uri);
-        showToast("success", "Success", "Image selected successfully");
+        showToast("success", "Thành công", "Đã chọn ảnh thành công");
       }
     } catch (error) {
       console.error("Camera error:", error);
-      showToast("error", "Error", "Failed to open camera");
+      showToast("error", "Lỗi", "Không thể mở máy ảnh");
     }
   };
 
@@ -389,7 +389,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
         showToast(
           "error",
           "Permission denied",
-          "Gallery permission is required to select photos"
+          "Yêu cầu quyền truy cập thư viện để chọn ảnh"
         );
         return;
       }
@@ -403,11 +403,11 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
 
       if (!result.canceled && result.assets[0]) {
         setSelectedImage(result.assets[0].uri);
-        showToast("success", "Success", "Image selected successfully");
+        showToast("success", "Thành công", "Đã chọn ảnh thành công");
       }
     } catch (error) {
       console.error("Image library error:", error);
-      showToast("error", "Error", "Failed to open gallery");
+      showToast("error", "Lỗi", "Không thể mở thư viện ảnh");
     }
   };
 
@@ -468,10 +468,10 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                 control={control}
                 name="fullName"
                 rules={{
-                  required: "Full name is required",
+                  required: "Họ và tên là bắt buộc",
                   minLength: {
                     value: 2,
-                    message: "Full name must be at least 2 characters",
+                    message: "Họ và tên phải có ít nhất 2 ký tự",
                   },
                 }}
                 render={({ field: { onChange, value, onBlur } }) => (
@@ -546,10 +546,10 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                 control={control}
                 name="email"
                 rules={{
-                  required: "Email is required",
+                  required: "Email là bắt buộc",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Please enter a valid email",
+                    message: "Vui lòng nhập địa chỉ email hợp lệ",
                   },
                 }}
                 render={({ field: { onChange, value, onBlur } }) => (

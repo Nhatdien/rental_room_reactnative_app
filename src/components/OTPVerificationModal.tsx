@@ -89,7 +89,7 @@ const OTPVerificationModal = ({
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
           <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>OTP Verification</Text>
+            <Text style={styles.modalTitle}>Xác thực OTP</Text>
             <TouchableOpacity onPress={onClose}>
               <Ionicons name="close" size={24} color="#333" />
             </TouchableOpacity>
@@ -101,11 +101,11 @@ const OTPVerificationModal = ({
             </View>
 
             <Text style={styles.description}>
-              Verification code has been sent to email:
+              Mã xác thực đã được gửi đến email:
             </Text>
             <Text style={styles.email}>{email}</Text>
 
-            <Text style={styles.otpLabel}>Enter OTP (6 numbers):</Text>
+            <Text style={styles.otpLabel}>Nhập mã OTP (6 số):</Text>
 
             <View style={styles.otpContainer}>
               {otp.map((digit, index) => (
@@ -146,12 +146,12 @@ const OTPVerificationModal = ({
               {isVerifying ? (
                 <ActivityIndicator size="small" color="#fff" />
               ) : (
-                <Text style={styles.verifyButtonText}>Verify</Text>
+                <Text style={styles.verifyButtonText}>Xác thực</Text>
               )}
             </TouchableOpacity>
 
             <Text style={styles.note}>
-              Note: Check your spam folder if you don't see the email
+              Lưu ý: Kiểm tra thư mục spam nếu bạn không thấy email
             </Text>
           </View>
         </View>

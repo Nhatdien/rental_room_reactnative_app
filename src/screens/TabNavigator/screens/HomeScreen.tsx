@@ -59,7 +59,7 @@ const HomeScreen: React.FC = () => {
   const [selectedProvince, setSelectedProvince] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [selectedWard, setSelectedWard] = useState("");
-  const [currentArea, setCurrentArea] = useState("Searching all areas");
+  const [currentArea, setCurrentArea] = useState("Đang tìm kiếm tất cả khu vực");
   const [favoriteRoomIds, setFavoriteRoomIds] = useState<string[]>([]);
   const [roomVip, setRoomVip] = useState<ListRoom[]>([]);
   const [roomNormal, setRoomNormal] = useState<ListRoom[]>([]);

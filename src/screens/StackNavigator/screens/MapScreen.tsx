@@ -142,7 +142,7 @@ const MapScreen: React.FC = () => {
       console.log("Room in map:", room);
       setRoomInMap(room);
     } catch (error) {
-      Alert.alert("Error", "Cannot get your current location");
+      Alert.alert("Lỗi", "Không thể lấy vị trí hiện tại của bạn");
       console.error(error);
     } finally {
       setIsLocating(false);

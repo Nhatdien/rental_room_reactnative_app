@@ -76,8 +76,8 @@ const PaymentModal = ({
       console.error("Failed to fetch payment info:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Failed to load payment information",
+        text1: "Lỗi",
+        text2: "Không thể tải thông tin thanh toán",
       });
     } finally {
       setLoading(false);
@@ -129,7 +129,7 @@ const PaymentModal = ({
           error?.response?.data?.message ||
           error?.response?.data?.error ||
           error?.message ||
-          "Failed to upload image";
+          "Không thể tải ảnh lên";
 
         Toast.show({
           type: "error",
@@ -226,7 +226,7 @@ const PaymentModal = ({
         error?.response?.data?.message ||
         error?.response?.data?.error ||
         error?.message ||
-        "Failed to confirm payment";
+        "Không thể xác nhận thanh toán";
 
       Toast.show({
         type: "error",

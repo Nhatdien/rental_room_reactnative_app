@@ -365,8 +365,8 @@ export default function RoomDetailScreen() {
       setShowBookingModal(false);
       Toast.show({
         type: "success",
-        text1: "Booking Successful",
-        text2: "Your booking has been submitted successfully.",
+        text1: "Đặt phòng thành công",
+        text2: "Yêu cầu đặt phòng của bạn đã được gửi thành công.",
       });
       //   console.log("Booking response:", response);
     } catch (error: any) {
@@ -376,7 +376,7 @@ export default function RoomDetailScreen() {
         text1: "Đặt phòng thất bại",
         text2:
           error.response?.data ||
-          "An error occurred while submitting your booking.",
+          "Đã xảy ra lỗi khi gửi đặt phòng của bạn.",
       });
     }
   };
@@ -429,7 +429,7 @@ export default function RoomDetailScreen() {
           ) : (
             <View style={[styles.mainImage, styles.placeholderImage]}>
               <Ionicons name="image-outline" size={64} color="#9ca3af" />
-              <Text style={styles.placeholderText}>No Image</Text>
+              <Text style={styles.placeholderText}>Không có hình ảnh</Text>
             </View>
           )}
 
@@ -821,7 +821,7 @@ export default function RoomDetailScreen() {
                 resizeMode="contain"
               />
             ) : (
-              <Text style={styles.noContentText}>No media available</Text>
+              <Text style={styles.noContentText}>Không có phương tiện truyền thông</Text>
             )}
           </View>
 

@@ -187,7 +187,7 @@ const ProfileScreen = ({ navigation }: Props) => {
 
       // Check if we have data
       if (!data) {
-        showToast("error", "Server Error", "Invalid response from server");
+        showToast("error", "Lỗi máy chủ", "Phản hồi không hợp lệ từ máy chủ");
         return;
       }
 
@@ -224,7 +224,7 @@ const ProfileScreen = ({ navigation }: Props) => {
       console.error("Change password error:", error);
 
       // Handle network errors or other exceptions
-      let errorMessage = "Failed to change password";
+      let errorMessage = "Không thể thay đổi mật khẩu";
 
       if (error?.response?.data?.message) {
         if (Array.isArray(error.response.data.message)) {
@@ -303,10 +303,10 @@ const ProfileScreen = ({ navigation }: Props) => {
                 <Text style={styles.userName}>
                   {userProfile?.fullName ||
                     authStore.loggedInUser?.userProfile?.fullName ||
-                    "No name"}
+                    "Không có tên"}
                 </Text>
                 <Text style={styles.userEmail}>
-                  {userProfile?.email || "No email"}
+                  {userProfile?.email || "Không có email"}
                 </Text>
               </View>
             </View>
