@@ -54,13 +54,13 @@ const CATEGORY_ICONS: Record<string, React.ComponentType<any>> = {
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
-  school: "Schools",
-  market: "Shopping",
-  supermarket: "Shopping",
-  hospital: "Healthcare",
-  bank: "Banks",
-  restaurant: "Dining",
-  park: "Recreation",
+  school: "Trường học",
+  market: "Mua sắm",
+  supermarket: "Mua sắm",
+  hospital: "Y tế",
+  bank: "Ngân hàng",
+  restaurant: "Ăn uống",
+  park: "Giải trí",
 };
 
 const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
@@ -317,11 +317,11 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
           <MapPin size={24} color="#4f46e5" />
-          <Text style={styles.sectionTitle}>Nearby Places</Text>
+          <Text style={styles.sectionTitle}>Địa điểm lân cận</Text>
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="small" color="#4f46e5" />
-          <Text style={styles.loadingText}>Searching for places...</Text>
+          <Text style={styles.loadingText}>Đang tìm kiếm địa điểm...</Text>
         </View>
       </View>
     );
@@ -349,7 +349,7 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
         onPress={() => setIsCollapsed(!isCollapsed)}
       >
         <MapPin size={20} color="#4f46e5" />
-        <Text style={styles.sectionTitle}>Nearby Places</Text>
+        <Text style={styles.sectionTitle}>Địa điểm lân cận</Text>
         <Text style={styles.placesCount}>({totalPlaces})</Text>
         {isCollapsed ? (
           <ChevronDown size={18} color="#6b7280" />
@@ -360,7 +360,7 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
 
       {isCollapsed ? (
         <Text style={styles.collapsedSummary}>
-          {totalPlaces} places • Nearest:
+          {totalPlaces} địa điểm • Gần nhất:
           {nearestDistance !== null ? formatDistance(nearestDistance) : "N/A"}
         </Text>
       ) : nearbyPlaces.length > 0 ? (

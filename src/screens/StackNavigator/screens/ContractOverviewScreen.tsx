@@ -112,7 +112,7 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
         >
           <Ionicons name="chevron-back" size={24} color="#1e293b" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Contract</Text>
+        <Text style={styles.headerTitle}>Hợp đồng</Text>
         <View style={styles.headerRight} />
       </View>
 
@@ -134,7 +134,7 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
                 tab === "overview" && styles.tabTextActive,
               ]}
             >
-              Overview
+              Tổng quan
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -149,7 +149,7 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
             <Text
               style={[styles.tabText, tab === "bills" && styles.tabTextActive]}
             >
-              Bills
+              Hóa đơn
             </Text>
           </TouchableOpacity>
         </View>
@@ -179,13 +179,13 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
                 {contractData?.status == 0 && (
                   <View style={styles.statusBadge}>
                     <View style={styles.statusDot} />
-                    <Text style={styles.statusText}>Active</Text>
+                    <Text style={styles.statusText}>Đang hoạt động</Text>
                   </View>
                 )}
                 {contractData?.status == 2 && (
                   <View style={styles.statusBadgeExpired}>
                     <View style={styles.statusDotExpired} />
-                    <Text style={styles.statusTextExpired}>Expired</Text>
+                    <Text style={styles.statusTextExpired}>Đã hết hạn</Text>
                   </View>
                 )}
               </View>
@@ -193,14 +193,14 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
             <View style={styles.statusDivider} />
             <View style={styles.statusFooter}>
               <View style={styles.statusFooterItem}>
-                <Text style={styles.statusFooterLabel}>Start Date</Text>
+                <Text style={styles.statusFooterLabel}>Ngày bắt đầu</Text>
                 <Text style={styles.statusFooterValue}>
                   {formatDate(contractData?.startDate)}
                 </Text>
               </View>
               <View style={styles.statusFooterDivider} />
               <View style={styles.statusFooterItem}>
-                <Text style={styles.statusFooterLabel}>End Date</Text>
+                <Text style={styles.statusFooterLabel}>Ngày kết thúc</Text>
                 <Text style={styles.statusFooterValue}>
                   {formatDate(contractData?.endDate)}
                 </Text>
@@ -209,7 +209,7 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
           </View>
 
           {/* Room Info */}
-          <Text style={styles.sectionTitle}>Room Information</Text>
+          <Text style={styles.sectionTitle}>Thông tin phòng</Text>
           <View style={styles.roomCard}>
             <MaterialCommunityIcons
               name="home-outline"
@@ -220,54 +220,54 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
           </View>
 
           {/* Details Grid */}
-          <Text style={styles.sectionTitle}>Contract Details</Text>
+          <Text style={styles.sectionTitle}>Chi tiết hợp đồng</Text>
           <View style={styles.infoGrid}>
             <InfoCard
               icon="account-outline"
-              label="Tenant"
+              label="Người thuê"
               value={contractData?.tenantName}
             />
             <InfoCard
               icon="phone-outline"
-              label="Phone Number"
+              label="Số điện thoại"
               value={contractData?.tenantPhone || "N/A"}
             />
             <InfoCard
               icon="account-tie-outline"
-              label="Landlord"
+              label="Chủ nhà"
               value={contractData?.landlordName}
             />
             <InfoCard
               icon="cash-multiple"
-              label="Deposit Amount"
+              label="Tiền cọc"
               value={formatCurrencyVN(contractData?.depositAmount)}
             />
             <InfoCard
               icon="calendar-month-outline"
-              label="Monthly Rent"
+              label="Tiền thuê hàng tháng"
               value={formatCurrencyVN(contractData?.monthlyRent)}
               valueColor="#22c55e"
             />
             {contractData?.status == 0 && (
               <InfoCard
                 icon="check-circle-outline"
-                label="Status"
-                value="Active"
+                label="Trạng thái"
+                value="Đang hoạt động"
                 valueColor="#22c55e"
               />
             )}
             {contractData?.status == 2 && (
               <InfoCard
                 icon="check-circle-outline"
-                label="Status"
-                value="Expired"
+                label="Trạng thái"
+                value="Đã hết hạn"
                 valueColor="#ef4444"
               />
             )}
           </View>
 
           {/* Contract File */}
-          <Text style={styles.sectionTitle}>Contract File</Text>
+          <Text style={styles.sectionTitle}>Tệp hợp đồng</Text>
           <FilePreview
             fileUrl={
               contractData?.contractImage
@@ -292,28 +292,28 @@ const ContractOverviewScreen = ({ navigation, route }: Props) => {
                 size={22}
                 color="#f59e0b"
               />
-              <Text style={styles.notesTitle}>Important Notes</Text>
+              <Text style={styles.notesTitle}>Lưu ý quan trọng</Text>
             </View>
             <View style={styles.notesList}>
               <View style={styles.noteItem}>
                 <View style={styles.noteDot} />
                 <Text style={styles.noteText}>
-                  Update contract information when changes occur
+                  Cập nhật thông tin hợp đồng khi có thay đổi
                 </Text>
               </View>
               <View style={styles.noteItem}>
                 <View style={styles.noteDot} />
                 <Text style={styles.noteText}>
-                  Contact landlord if adjustments are needed
+                  Liên hệ chủ nhà nếu cần điều chỉnh
                 </Text>
               </View>
               <View style={styles.noteItem}>
                 <View style={styles.noteDot} />
-                <Text style={styles.noteText}>Pay bills on time</Text>
+                <Text style={styles.noteText}>Thanh toán hóa đơn đúng hạn</Text>
               </View>
               <View style={styles.noteItem}>
                 <View style={styles.noteDot} />
-                <Text style={styles.noteText}>Report issues promptly</Text>
+                <Text style={styles.noteText}>Báo cáo sự cố kịp thời</Text>
               </View>
             </View>
           </View>

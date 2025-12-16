@@ -58,8 +58,8 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
       console.error("Failed to load contract:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Failed to load contract information",
+        text1: "Lỗi",
+        text2: "Không thể tải thông tin hợp đồng",
       });
     } finally {
       setLoadingContract(false);
@@ -116,7 +116,7 @@ const ResidentsDetailView = ({ navigation, route }: Props) => {
         >
           <Ionicons name="arrow-back" size={24} color="#333" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Resident Details</Text>
+        <Text style={styles.headerTitle}>Chi tiết người ở</Text>
         <View style={styles.headerRight} />
       </View>
 

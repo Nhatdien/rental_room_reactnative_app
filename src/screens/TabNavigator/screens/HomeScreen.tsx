@@ -473,7 +473,7 @@ const HomeScreen: React.FC = () => {
       {/* Header */}
       {/* <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Text style={styles.welcomeText}>Welcome back</Text>
+          <Text style={styles.welcomeText}>Chào mừng trở lại</Text>
           {user && (
             <Text style={styles.userName}>{user.userProfile.fullName}</Text>
           )}
@@ -520,8 +520,8 @@ const HomeScreen: React.FC = () => {
 
         {/* Premium Listings Section */}
         <RoomSection
-          title="Premium Listings"
-          subtitle="Hand-picked premium rooms for the discerning renter"
+          title="Phòng cao cấp"
+          subtitle="Những phòng cao cấp được tuyển chọn kỹ lưỡng dành cho bạn"
           icon="star"
           rooms={roomVip}
           onViewAll={() => console.log("View all VIP rooms")}
@@ -537,8 +537,8 @@ const HomeScreen: React.FC = () => {
 
         {/* Featured Properties Section */}
         <RoomSection
-          title="Featured Properties"
-          subtitle="Discover our most popular and highly-rated rental properties"
+          title="Phòng nổi bật"
+          subtitle="Khám phá các phòng trọ phổ biến và được đánh giá cao nhất"
           icon="home"
           rooms={roomNormal}
           onViewAll={() => console.log("View all featured rooms")}

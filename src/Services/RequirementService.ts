@@ -51,13 +51,13 @@ export const getStatusColor = (status: 0 | 1 | 2): string => {
 export const getStatusText = (status: 0 | 1 | 2): string => {
   switch (status) {
     case 0:
-      return "Not Processed";
+      return "Chưa xử lý";
     case 1:
-      return "Completed";
+      return "Hoàn thành";
     case 2:
-      return "Rejected";
+      return "Từ chối";
     default:
-      return "Unknown";
+      return "Không xác định";
   }
 };
 

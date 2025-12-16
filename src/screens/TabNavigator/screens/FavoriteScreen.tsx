@@ -371,7 +371,7 @@ const RoomCard = ({ item, isFavorite, onToggle }: any) => {
               style={styles.detailBtn}
             >
               <Text style={styles.detailText} numberOfLines={1}>
-                See Detail
+                Xem chi tiết
               </Text>
             </TouchableOpacity>
           </View>
@@ -442,8 +442,8 @@ const FavoriteScreen = ({ navigation }: Props) => {
           try {
             Toast.show({
               type: "success",
-              text1: "Removed from favorites",
-              text2: "Room removed from your favorites.",
+              text1: "Đã xóa khỏi yêu thích",
+              text2: "Phòng đã được xóa khỏi danh sách yêu thích.",
               visibilityTime: 2000,
             });
           } catch (e) {
@@ -465,7 +465,7 @@ const FavoriteScreen = ({ navigation }: Props) => {
     return (
       <View style={styles.center}>
         <ActivityIndicator size="large" color="#4f8ef7" />
-        <Text style={styles.hint}>Loading favorite rooms...</Text>
+        <Text style={styles.hint}>Đang tải phòng yêu thích...</Text>
         {error ? (
           <Text style={{ color: "#ff6b6b", marginTop: 12 }}>{error}</Text>
         ) : null}
@@ -483,7 +483,7 @@ const FavoriteScreen = ({ navigation }: Props) => {
           onPress={() => load(0)}
           style={[styles.pageBtn, { paddingHorizontal: 20 }]}
         >
-          <Text style={styles.pageText}>Retry</Text>
+          <Text style={styles.pageText}>Thử lại</Text>
         </TouchableOpacity>
       </View>
     );
@@ -496,9 +496,9 @@ const FavoriteScreen = ({ navigation }: Props) => {
         <View style={styles.header}>
           <View style={styles.headerTop}>
             <View>
-              <Text style={styles.headerTitle}>Favorites</Text>
+              <Text style={styles.headerTitle}>Yêu thích</Text>
               <Text style={styles.headerSubtitle}>
-                {rooms.length} {rooms.length === 1 ? "room" : "rooms"} saved
+                {rooms.length} {rooms.length === 1 ? "phòng" : "phòng"} đã lưu
               </Text>
             </View>
             <View style={styles.headerIcon}>
@@ -532,9 +532,9 @@ const FavoriteScreen = ({ navigation }: Props) => {
             <View style={styles.emptyIconContainer}>
               <Icon name="heart-outline" size={64} color="#E5E7EB" />
             </View>
-            <Text style={styles.emptyTitle}>No favorite rooms yet</Text>
+            <Text style={styles.emptyTitle}>Chưa có phòng yêu thích</Text>
             <Text style={styles.emptySub}>
-              Explore amazing rooms and tap the heart icon to save them here
+              Khám phá các phòng tuyệt vời và nhấn vào biểu tượng trái tim để lưu chúng ở đây
             </Text>
           </View>
         )}

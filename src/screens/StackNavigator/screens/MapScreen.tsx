@@ -169,12 +169,12 @@ const MapScreen: React.FC = () => {
               onPress={() => setShowRoomList(true)}
             >
               <Ionicons name="list" size={normalize(16)} color="#fff" />
-              <Text style={styles.headerButtonText}>List</Text>
+              <Text style={styles.headerButtonText}>Danh sách</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={[styles.headerButton, styles.mapButton]}>
               <Ionicons name="map" size={normalize(16)} color="#fff" />
-              <Text style={styles.headerButtonText}>Map</Text>
+              <Text style={styles.headerButtonText}>Bản đồ</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -254,7 +254,7 @@ const MapScreen: React.FC = () => {
         >
           <SafeAreaView style={styles.modalContainer}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>List Rooms</Text>
+              <Text style={styles.modalTitle}>Danh sách phòng</Text>
               <TouchableOpacity
                 style={styles.modalCloseButton}
                 onPress={() => setShowRoomList(false)}

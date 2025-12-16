@@ -332,8 +332,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
     if (!userId) {
       Toast.show({
         type: "error",
-        text1: "Login Required",
-        text2: "Please log in to manage email notifications.",
+        text1: "Yêu cầu đăng nhập",
+        text2: "Vui lòng đăng nhập để quản lý thông báo email.",
         position: "top",
       });
       return;
@@ -365,10 +365,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
       Toast.show({
         type: "success",
-        text1: "Success",
-        text2: `Email notifications ${
-          updatedValue ? "enabled" : "disabled"
-        } successfully!`,
+        text1: "Thành công",
+        text2: `Đã ${
+          updatedValue ? "bật" : "tắt"
+        } thông báo email thành công!`,
         position: "top",
       });
 
@@ -388,8 +388,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Failed to update email notifications. Please try again.",
+        text1: "Lỗi",
+        text2: "Không thể cập nhật thông báo email. Vui lòng thử lại.",
         position: "top",
       });
 
@@ -600,8 +600,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
     if (!searchAddress) {
       Toast.show({
         type: "info",
-        text1: "No Address",
-        text2: "Please enter an address or select a location to search.",
+        text1: "Chưa có địa chỉ",
+        text2: "Vui lòng nhập địa chỉ hoặc chọn vị trí để tìm kiếm.",
         position: "top",
       });
       return;
@@ -616,8 +616,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
       if (!geoResult) {
         Toast.show({
           type: "error",
-          text1: "Invalid Address",
-          text2: "Could not find the address. Please check and try again.",
+          text1: "Địa chỉ không hợp lệ",
+          text2: "Không tìm thấy địa chỉ. Vui lòng kiểm tra và thử lại.",
           position: "top",
         });
         return;
@@ -672,8 +672,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
       Toast.show({
         type: "success",
-        text1: "Searching",
-        text2: `Looking for rooms near: ${searchAddress}`,
+        text1: "Đang tìm kiếm",
+        text2: `Tìm kiếm phòng gần: ${searchAddress}`,
         position: "top",
         visibilityTime: 2000,
       });
@@ -681,8 +681,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
       console.error("❌ [SearchBar] Error searching by address:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Failed to search. Please try again.",
+        text1: "Lỗi",
+        text2: "Tìm kiếm thất bại. Vui lòng thử lại.",
         position: "top",
       });
     }
@@ -751,7 +751,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <View style={styles.currentAreaIcon}>
             <Ionicons name="location" size={16} color="#4A90E2" />
           </View>
-          <Text style={styles.currentAreaLabel}>Current Search Area:</Text>
+          <Text style={styles.currentAreaLabel}>Khu vực tìm kiếm:</Text>
         </View>
         <Text style={styles.currentAreaText}>{displayArea}</Text>
         <TouchableOpacity style={styles.locationButton}>
@@ -769,14 +769,14 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
         <TextInput
           style={styles.searchInput}
-          placeholder="Enter specific address (house number, street name)..."
+          placeholder="Nhập địa chỉ cụ thể (số nhà, tên đường)..."
           placeholderTextColor="#999"
           value={searchText}
           onChangeText={onSearchChange}
         />
         <TouchableOpacity style={styles.mapButton} onPress={onMapPress}>
           <Ionicons name="map" size={16} color="#4A90E2" />
-          <Text style={styles.mapButtonText}>View Map</Text>
+          <Text style={styles.mapButtonText}>Xem bản đồ</Text>
         </TouchableOpacity>
       </View>
 
@@ -787,7 +787,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       >
         {/* <Ionicons name="options-outline" size={16} color="#4A90E2" /> */}
         <Text style={styles.toggleButtonText}>
-          {isExpanded ? "Close" : "More"}
+          {isExpanded ? "Đóng" : "Thêm"}
         </Text>
         <Ionicons
           name={isExpanded ? "chevron-up" : "chevron-down"}
@@ -806,7 +806,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
               onPress={() => setShowProvinceModal(true)}
             >
               <Text style={styles.filterButtonText}>
-                {provinceLabel || "Select Province/City"}
+                {provinceLabel || "Chọn Tỉnh/Thành phố"}
               </Text>
               <Ionicons name="chevron-down" size={16} color="#666" />
             </TouchableOpacity>
@@ -825,7 +825,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                   districts.length === 0 && styles.disabledText,
                 ]}
               >
-                {districtLabel || "Select District"}
+                {districtLabel || "Chọn Quận/Huyện"}
               </Text>
               <Ionicons name="chevron-down" size={16} color="#666" />
             </TouchableOpacity>
@@ -841,7 +841,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                   wards.length === 0 && styles.disabledText,
                 ]}
               >
-                {wardLabel || "Select Ward"}
+                {wardLabel || "Chọn Phường/Xã"}
               </Text>
               <Ionicons name="chevron-down" size={16} color="#666" />
             </TouchableOpacity>
@@ -854,7 +854,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
               onPress={handleSearch}
             >
               <Ionicons name="search" size={16} color="#fff" />
-              <Text style={styles.searchButtonText}>Search</Text>
+              <Text style={styles.searchButtonText}>Tìm kiếm</Text>
             </TouchableOpacity>
 
             {userId && (
@@ -893,7 +893,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                     <View style={styles.infoPopupContent}>
                       <View style={styles.infoPopupHeader}>
                         <Text style={styles.infoPopupTitleText}>
-                          ℹ️ Search Area Info
+                          ℹ️ Thông tin khu vực tìm kiếm
                         </Text>
                         <TouchableOpacity
                           onPress={() => setShowInfoPopup(false)}
@@ -903,11 +903,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
                       </View>
 
                       <View style={styles.infoPopupBody}>
-                        <Text style={styles.infoPopupLabel}>Current Area:</Text>
+                        <Text style={styles.infoPopupLabel}>Khu vực hiện tại:</Text>
                         <Text style={styles.infoPopupValue}>{displayArea}</Text>
 
                         <Text style={styles.infoPopupDescription}>
-                          {`You can:\n• Use the 📍 button to save your current GPS location\n• Use the 🔍 Search button to search by address\n• The system will find rooms near your saved location`}
+                          {`Bạn có thể:\n• Dùng nút 📍 để lưu vị trí GPS hiện tại\n• Dùng nút 🔍 Tìm kiếm để tìm theo địa chỉ\n• Hệ thống sẽ tìm phòng gần vị trí đã lưu của bạn`}
                         </Text>
                       </View>
                     </View>
@@ -948,7 +948,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                     <View style={styles.emailPopupContent}>
                       <View style={styles.emailPopupHeader}>
                         <Text style={styles.emailPopupTitleText}>
-                          📧 Email Notifications
+                          📧 Thông báo Email
                         </Text>
                         <TouchableOpacity
                           onPress={() => setShowEmailPopup(false)}
@@ -959,7 +959,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
                       <View style={styles.emailSwitchRow}>
                         <Text style={styles.emailSwitchLabel}>
-                          {emailNotifications ? "Enabled" : "Disabled"}
+                          {emailNotifications ? "Đã bật" : "Đã tắt"}
                         </Text>
                         {loadingEmailNotifications ? (
                           <ActivityIndicator size="small" color="#4A90E2" />
@@ -991,7 +991,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         () => setShowProvinceModal(false),
         provinces,
         handleProvinceSelect,
-        "Select Province/City",
+        "Chọn Tỉnh/Thành phố",
         loadingProvinces
       )}
 
@@ -1000,7 +1000,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         () => setShowDistrictModal(false),
         districts,
         handleDistrictSelect,
-        "Select District",
+        "Chọn Quận/Huyện",
         loadingDistricts
       )}
 
@@ -1009,7 +1009,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         () => setShowWardModal(false),
         wards,
         handleWardSelect,
-        "Select Ward",
+        "Chọn Phường/Xã",
         loadingWards
       )}
     </View>

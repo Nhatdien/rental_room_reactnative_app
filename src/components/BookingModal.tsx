@@ -59,26 +59,26 @@ const BookingModal: React.FC<BookingModalProps> = ({
     >
       <View style={styles.overlay}>
         <View style={styles.modalContainer}>
-          <Text style={styles.title}>Book Room</Text>
+          <Text style={styles.title}>Đặt phòng</Text>
           <View style={styles.roomInfoBox}>
             <Text style={styles.roomTitle}>{roomTitle}</Text>
             <Text style={styles.roomPrice}>
-              {pricePerMonth.toLocaleString("vi-VN")} VND/month
+              {pricePerMonth.toLocaleString("vi-VN")} VND/tháng
             </Text>
           </View>
 
           <View style={styles.sectionBox}>
-            <Text style={styles.sectionTitle}>Rental Period</Text>
+            <Text style={styles.sectionTitle}>Thời gian thuê</Text>
             <Text style={styles.periodText}>
-              Start Date: <Text style={styles.bold}>{startDate} (Today)</Text>
+              Ngày bắt đầu: <Text style={styles.bold}>{startDate} (Hôm nay)</Text>
             </Text>
             <Text style={styles.periodText}>
-              End Date: <Text style={styles.bold}>{endDate}</Text>
+              Ngày kết thúc: <Text style={styles.bold}>{endDate}</Text>
             </Text>
           </View>
 
           <View style={styles.sectionBox}>
-            <Text style={styles.sectionTitle}>Rental Duration (Months)</Text>
+            <Text style={styles.sectionTitle}>Thời hạn thuê (Tháng)</Text>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -99,7 +99,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
                       duration === opt && styles.durationOptionTextActive,
                     ]}
                   >
-                    {opt} Month{opt > 1 ? "s" : ""}
+                    {opt} Tháng
                   </Text>
                 </TouchableOpacity>
               ))}
@@ -107,20 +107,20 @@ const BookingModal: React.FC<BookingModalProps> = ({
           </View>
 
           <View style={styles.sectionBox}>
-            <Text style={styles.sectionTitle}>Total Cost</Text>
+            <Text style={styles.sectionTitle}>Tổng chi phí</Text>
             <View style={styles.totalCostBox}>
               <Text style={styles.totalCost}>
                 {totalCost.toLocaleString("vi-VN")} VND
               </Text>
               <Text style={styles.totalCostDesc}>
-                {duration} month{duration > 1 ? "s" : ""} ×
-                {pricePerMonth.toLocaleString("vi-VN")} VND/month
+                {duration} tháng ×
+                {pricePerMonth.toLocaleString("vi-VN")} VND/tháng
               </Text>
             </View>
           </View>
 
           <View style={styles.sectionBox}>
-            <Text style={styles.sectionTitle}>Number of Tenants</Text>
+            <Text style={styles.sectionTitle}>Số lượng người thuê</Text>
             <View style={styles.tenantsRow}>
               <Text style={styles.tenantsIcon}>👤</Text>
               <TextInput
@@ -145,10 +145,10 @@ const BookingModal: React.FC<BookingModalProps> = ({
 
           <View style={styles.buttonRow}>
             <TouchableOpacity style={styles.cancelBtn} onPress={onClose}>
-              <Text style={styles.cancelBtnText}>Cancel</Text>
+              <Text style={styles.cancelBtnText}>Hủy</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.confirmBtn} onPress={handleConfirm}>
-              <Text style={styles.confirmBtnText}>Confirm Booking</Text>
+              <Text style={styles.confirmBtnText}>Xác nhận đặt phòng</Text>
             </TouchableOpacity>
           </View>
         </View>

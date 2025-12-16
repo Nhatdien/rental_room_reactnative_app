@@ -49,7 +49,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
- "plugins": [
+    "plugins": [
       [
         "@react-native-google-signin/google-signin",
         {
@@ -67,11 +67,11 @@
     "experiments": {
       "tsconfigPaths": true
     },
+    "owner": "nhattran2306",
     "extra": {
       "eas": {
-        "projectId": "ca73dec2-946c-4968-a5e5-b15f9cca8420"
+        "projectId": "2de10f86-f298-4f49-939b-805cb7f4a415"
       }
-    },
-    "owner": "nhan12163"
+    }
   }
 }

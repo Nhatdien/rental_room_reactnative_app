@@ -27,24 +27,24 @@ const schema = yup
   .object({
     fullName: yup
       .string()
-      .min(3, "Full name must be at least 3 characters")
-      .required("Please enter your full name"),
+      .min(3, "Họ tên phải có ít nhất 3 ký tự")
+      .required("Vui lòng nhập họ tên"),
     email: yup
       .string()
-      .email("Please enter a valid email address")
-      .required("Please enter your email"),
+      .email("Vui lòng nhập địa chỉ email hợp lệ")
+      .required("Vui lòng nhập email"),
     username: yup
       .string()
-      .min(3, "Username must be at least 3 characters")
-      .required("Please enter phone number or email"),
+      .min(3, "Tên đăng nhập phải có ít nhất 3 ký tự")
+      .required("Vui lòng nhập số điện thoại hoặc email"),
     password: yup
       .string()
-      .min(6, "Password must be at least 6 characters")
-      .required("Please enter your password"),
+      .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
+      .required("Vui lòng nhập mật khẩu"),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password")], "Passwords must match")
-      .required("Please confirm your password"),
+      .oneOf([yup.ref("password")], "Mật khẩu không khớp")
+      .required("Vui lòng xác nhận mật khẩu"),
   })
   .required();
 
@@ -68,7 +68,7 @@ const RegisterScreen: React.FC = () => {
     Toast.show({
       type: "error",
       position: "top",
-      text1: "Authentication Error",
+      text1: "Lỗi xác thực",
       text2: msg,
       visibilityTime: 4000,
       autoHide: true,
@@ -167,8 +167,8 @@ const RegisterScreen: React.FC = () => {
             resizeMode="contain"
           />
 
-          <Text style={styles.title}>Welcome to Ant</Text>
-          <Text style={styles.subtitle}>Register to continue</Text>
+          <Text style={styles.title}>Chào mừng đến với Ant</Text>
+          <Text style={styles.subtitle}>Đăng ký để tiếp tục</Text>
 
           {/* Using native Toast (Android) or Alert (iOS) to show errors */}
 
@@ -179,7 +179,7 @@ const RegisterScreen: React.FC = () => {
               render={({ field: { onChange, value }, fieldState }) => (
                 <>
                   <TextInput
-                    placeholder="Full Name"
+                    placeholder="Họ và tên"
                     placeholderTextColor="#9aa0a6"
                     style={[
                       styles.input,
@@ -256,7 +256,7 @@ const RegisterScreen: React.FC = () => {
               render={({ field: { onChange, value }, fieldState }) => (
                 <>
                   <TextInput
-                    placeholder="Enter Username"
+                    placeholder="Nhập tên đăng nhập"
                     placeholderTextColor="#9aa0a6"
                     style={[
                       styles.input,
@@ -296,7 +296,7 @@ const RegisterScreen: React.FC = () => {
                 <>
                   <View style={styles.passwordRow}>
                     <TextInput
-                      placeholder="Password"
+                      placeholder="Mật khẩu"
                       placeholderTextColor="#9aa0a6"
                       style={[
                         styles.input,
@@ -346,7 +346,7 @@ const RegisterScreen: React.FC = () => {
               render={({ field: { onChange, value }, fieldState }) => (
                 <>
                   <TextInput
-                    placeholder="Confirm Password"
+                    placeholder="Xác nhận mật khẩu"
                     placeholderTextColor="#9aa0a6"
                     style={[
                       styles.input,
@@ -383,18 +383,18 @@ const RegisterScreen: React.FC = () => {
               style={styles.loginBtn}
               onPress={handleSubmit(onSubmit)}
             >
-              <Text style={styles.loginText}>Register</Text>
+              <Text style={styles.loginText}>Đăng ký</Text>
             </TouchableOpacity>
 
             <Text
               style={{ color: "#cbd5df", textAlign: "center", marginTop: 12 }}
             >
-              Do you have an account?
+              Đã có tài khoản?
               <Text
                 style={{ color: "#fff", fontWeight: "700" }}
                 onPress={() => navigation.navigate("LoginScreen")}
               >
-                Sign in here
+                {" "}Đăng nhập tại đây
               </Text>
             </Text>
           </View>

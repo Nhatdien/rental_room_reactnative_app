@@ -98,8 +98,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
       console.error("Error loading residents:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: error.message || "Failed to load residents",
+        text1: "Lỗi",
+        text2: error.message || "Không thể tải danh sách người ở",
       });
     } finally {
       setLoading(false);
@@ -119,8 +119,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
       console.error("Error loading contracts:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: error.message || "Failed to load contracts",
+        text1: "Lỗi",
+        text2: error.message || "Không thể tải danh sách hợp đồng",
       });
     } finally {
       setLoadingContracts(false);
@@ -209,8 +209,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
     if (!formData.fullName || !formData.idNumber || !formData.contractId) {
       Toast.show({
         type: "error",
-        text1: "Validation Error",
-        text2: "Please fill in all required fields",
+        text1: "Lỗi xác thực",
+        text2: "Vui lòng điền đầy đủ các trường bắt buộc",
       });
       return;
     }
@@ -219,8 +219,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
     if (!/^\d{12}$/.test(formData.idNumber)) {
       Toast.show({
         type: "error",
-        text1: "Validation Error",
-        text2: "ID Number must be exactly 12 digits",
+        text1: "Lỗi xác thực",
+        text2: "Số CMND/CCCD phải đúng 12 chữ số",
       });
       return;
     }
@@ -228,8 +228,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
     if (!formData.startDate || !formData.endDate) {
       Toast.show({
         type: "error",
-        text1: "Validation Error",
-        text2: "Please select start and end dates",
+        text1: "Lỗi xác thực",
+        text2: "Vui lòng chọn ngày bắt đầu và kết thúc",
       });
       return;
     }
@@ -244,8 +244,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
       );
       Toast.show({
         type: "success",
-        text1: "Success",
-        text2: "Resident added successfully",
+        text1: "Thành công",
+        text2: "Đã thêm người ở thành công",
       });
       setShowAddModal(false);
       resetForm();
@@ -254,8 +254,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
       console.error("Error adding resident:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: error.message || "Failed to add resident",
+        text1: "Lỗi",
+        text2: error.message || "Không thể thêm người ở",
       });
     } finally {
       setLoading(false);
@@ -268,8 +268,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
     if (!formData.fullName || !formData.idNumber) {
       Toast.show({
         type: "error",
-        text1: "Validation Error",
-        text2: "Please fill in all required fields",
+        text1: "Lỗi xác thực",
+        text2: "Vui lòng điền đầy đủ các trường bắt buộc",
       });
       return;
     }
@@ -278,8 +278,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
     if (!/^\d{12}$/.test(formData.idNumber)) {
       Toast.show({
         type: "error",
-        text1: "Validation Error",
-        text2: "ID Number must be exactly 12 digits",
+        text1: "Lỗi xác thực",
+        text2: "Số CMND/CCCD phải đúng 12 chữ số",
       });
       return;
     }
@@ -295,8 +295,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
       );
       Toast.show({
         type: "success",
-        text1: "Success",
-        text2: "Resident updated successfully",
+        text1: "Thành công",
+        text2: "Đã cập nhật người ở thành công",
       });
       setShowEditModal(false);
       setSelectedResident(null);
@@ -306,8 +306,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
       console.error("Error updating resident:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: error.message || "Failed to update resident",
+        text1: "Lỗi",
+        text2: error.message || "Không thể cập nhật người ở",
       });
     } finally {
       setLoading(false);
@@ -316,15 +316,15 @@ const ResidentsScreen = ({ navigation }: Props) => {
 
   const handleDeleteResident = (resident: Resident) => {
     Alert.alert(
-      "Delete Resident",
-      `Are you sure you want to delete ${resident.fullName}?`,
+      "Xóa người ở",
+      `Bạn có chắc chắn muốn xóa ${resident.fullName}?`,
       [
         {
-          text: "Cancel",
+          text: "Hủy",
           style: "cancel",
         },
         {
-          text: "Delete",
+          text: "Xóa",
           style: "destructive",
           onPress: async () => {
             try {
@@ -338,15 +338,15 @@ const ResidentsScreen = ({ navigation }: Props) => {
 
               Toast.show({
                 type: "success",
-                text1: "Success",
-                text2: "Resident deleted successfully",
+                text1: "Thành công",
+                text2: "Đã xóa người ở thành công",
               });
             } catch (error: any) {
               console.error("Error deleting resident:", error);
               Toast.show({
                 type: "error",
-                text1: "Error",
-                text2: error.message || "Failed to delete resident",
+                text1: "Lỗi",
+                text2: error.message || "Không thể xóa người ở",
               });
             } finally {
               setDeleting(false);

@@ -243,7 +243,7 @@ const MessageScreen = () => {
     <SafeAreaView style={styles.container} edges={["top"]}>
       {/* Conversation list - always visible */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Messages</Text>
+        <Text style={styles.headerTitle}>Tin nhắn</Text>
         <View style={styles.searchContainer}>
           <Icon
             name="magnify"
@@ -254,7 +254,7 @@ const MessageScreen = () => {
           <TextInput
             value={searchQuery}
             onChangeText={setSearchQuery}
-            placeholder="Search conversations..."
+            placeholder="Tìm kiếm cuộc trò chuyện..."
             placeholderTextColor="#9ca3af"
             style={styles.searchInput}
           />
@@ -276,8 +276,8 @@ const MessageScreen = () => {
             <Icon name="message-text-outline" size={64} color="#d1d5db" />
             <Text style={styles.emptyText}>
               {searchQuery.trim()
-                ? "No conversations found"
-                : "No messages yet"}
+                ? "Không tìm thấy cuộc trò chuyện"
+                : "Chưa có tin nhắn"}
             </Text>
           </View>
         ) : (

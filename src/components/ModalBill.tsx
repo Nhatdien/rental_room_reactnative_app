@@ -68,8 +68,8 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
           {/* Header */}
           <View style={styles.header}>
             <View style={styles.headerContent}>
-              <Text style={styles.title}>RENTAL BILL</Text>
-              <Text style={styles.subtitle}>RENTAL BILL</Text>
+              <Text style={styles.title}>HÓA ĐƠN THUÊ PHÒNG</Text>
+              <Text style={styles.subtitle}>HÓA ĐƠN THUÊ PHÒNG</Text>
             </View>
             <TouchableOpacity style={styles.closeButton} onPress={onClose}>
               <MaterialCommunityIcons name="close" size={24} color="#64748b" />
@@ -84,25 +84,25 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
             {/* Bill Info */}
             <View style={styles.billInfo}>
               <Text style={styles.infoText}>
-                Date: {formatDate(bill.month)}
+                Ngày: {formatDate(bill.month)}
               </Text>
-              <Text style={styles.infoText}>Bill ID: {bill.id}</Text>
+              <Text style={styles.infoText}>Mã hóa đơn: {bill.id}</Text>
             </View>
 
             <View style={styles.divider} />
 
             {/* Customer Information */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>CUSTOMER INFORMATION</Text>
+              <Text style={styles.sectionTitle}>THÔNG TIN KHÁCH HÀNG</Text>
 
               <View style={styles.infoGrid}>
                 <View style={styles.infoRow}>
                   <View style={styles.infoColFull}>
-                    <Text style={styles.label}>Name:</Text>
+                    <Text style={styles.label}>Họ tên:</Text>
                     <Text style={styles.value}>{tenantInfo.name}</Text>
                   </View>
                   <View style={styles.infoCol}>
-                    <Text style={styles.label}>Phone:</Text>
+                    <Text style={styles.label}>Số điện thoại:</Text>
                     <Text style={styles.value}>
                       {tenantInfo.phone || "N/A"}
                     </Text>
@@ -111,11 +111,11 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
 
                 <View style={styles.infoRow}>
                   <View style={styles.infoColFull}>
-                    <Text style={styles.label}>Room:</Text>
+                    <Text style={styles.label}>Phòng:</Text>
                     <Text style={styles.value}>{tenantInfo.roomTitle}</Text>
                   </View>
                   <View style={styles.infoCol}>
-                    <Text style={styles.label}>Month:</Text>
+                    <Text style={styles.label}>Tháng:</Text>
                     <Text style={[styles.value, styles.monthValue]}>
                       {bill.month}
                     </Text>
@@ -126,19 +126,19 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
 
             {/* Bill Details */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>BILL DETAILS</Text>
+              <Text style={styles.sectionTitle}>CHI TIẾT HÓA ĐƠN</Text>
 
               <View style={styles.table}>
                 {/* Header */}
                 <View style={styles.tableHeader}>
-                  <Text style={styles.tableHeaderText}>Item</Text>
-                  <Text style={styles.tableHeaderText}>Amount</Text>
+                  <Text style={styles.tableHeaderText}>Hạng mục</Text>
+                  <Text style={styles.tableHeaderText}>Số tiền</Text>
                 </View>
 
                 {/* Electricity */}
                 <View style={styles.tableRow}>
                   <View style={styles.tableItemCol}>
-                    <Text style={styles.tableItemTitle}>Electricity</Text>
+                    <Text style={styles.tableItemTitle}>Tiền điện</Text>
                     <Text style={styles.tableItemSubtext}>
                       {bill.electricityUsage || 0} kWh ×
                       {formatNumber(bill.electricityPrice)} đ/kWh
@@ -152,7 +152,7 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
                 {/* Water */}
                 <View style={styles.tableRow}>
                   <View style={styles.tableItemCol}>
-                    <Text style={styles.tableItemTitle}>Water</Text>
+                    <Text style={styles.tableItemTitle}>Tiền nước</Text>
                     <Text style={styles.tableItemSubtext}>
                       {bill.waterUsage || 0} m³ ×{formatNumber(bill.waterPrice)}{" "}
                       đ/m³
@@ -166,7 +166,7 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
                 {/* Service Fee */}
                 <View style={styles.tableRow}>
                   <View style={styles.tableItemCol}>
-                    <Text style={styles.tableItemTitle}>Service Fee</Text>
+                    <Text style={styles.tableItemTitle}>Phí dịch vụ</Text>
                   </View>
                   <Text style={styles.tableAmount}>
                     {formatVND(bill.serviceFee)}
@@ -176,7 +176,7 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
                 {/* Damage Fee if exists */}
                 <View style={styles.tableRow}>
                   <View style={styles.tableItemCol}>
-                    <Text style={styles.tableItemTitle}>Other Fee</Text>
+                    <Text style={styles.tableItemTitle}>Phí khác</Text>
                     {bill.note && (
                       <Text style={styles.tableItemSubtext}>{bill.note}</Text>
                     )}
@@ -188,7 +188,7 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
 
                 {/* Total */}
                 <View style={styles.tableTotal}>
-                  <Text style={styles.totalLabel}>TOTAL</Text>
+                  <Text style={styles.totalLabel}>TỔNG CỘNG</Text>
                   <Text style={styles.totalAmount}>
                     {formatVND(bill.totalAmount)}
                   </Text>
@@ -199,7 +199,7 @@ const BillDetailModal: React.FunctionComponent<BillDetailModalProps> = ({
             {/* Footer Message */}
             <View style={styles.footer}>
               <Text style={styles.footerTitle}>
-                Thank you for trusting and using our services!
+                Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi!
               </Text>
               {/* <Text style={styles.footerSubtext}>
                 Please pay on time. Contact: {info}

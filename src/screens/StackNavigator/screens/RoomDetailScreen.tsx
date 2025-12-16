@@ -105,7 +105,7 @@ export default function RoomDetailScreen() {
   const handleShare = async () => {
     try {
       if (!roomId) {
-        Alert.alert("Error", "Room not found");
+        Alert.alert("Lỗi", "Không tìm thấy phòng");
         return;
       }
 
@@ -123,7 +123,7 @@ export default function RoomDetailScreen() {
       }
     } catch (error) {
       console.error("Error sharing:", error);
-      Alert.alert("Error", "Failed to share link");
+      Alert.alert("Lỗi", "Không thể chia sẻ liên kết");
     }
   };
 
@@ -259,8 +259,8 @@ export default function RoomDetailScreen() {
     if (!roomId) {
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Room ID not found",
+        text1: "Lỗi",
+        text2: "Không tìm thấy ID phòng",
         position: "top",
       });
       return;
@@ -269,8 +269,8 @@ export default function RoomDetailScreen() {
     if (!authorStore.loggedInUser?.id) {
       Toast.show({
         type: "error",
-        text1: "Login Required",
-        text2: "Please login to add favorites",
+        text1: "Yêu cầu đăng nhập",
+        text2: "Vui lòng đăng nhập để thêm yêu thích",
         position: "top",
       });
       return;
@@ -292,8 +292,8 @@ export default function RoomDetailScreen() {
         } else {
           Toast.show({
             type: "error",
-            text1: "Failed",
-            text2: "Could not remove from favorites",
+            text1: "Thất bại",
+            text2: "Không thể xóa khỏi yêu thích",
             position: "top",
           });
         }
@@ -312,8 +312,8 @@ export default function RoomDetailScreen() {
         } else {
           Toast.show({
             type: "error",
-            text1: "Failed",
-            text2: "Could not add to favorites",
+            text1: "Thất bại",
+            text2: "Không thể thêm vào yêu thích",
             position: "top",
           });
         }
@@ -322,8 +322,8 @@ export default function RoomDetailScreen() {
       console.error("Error toggling favorite:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "An error occurred. Please try again.",
+        text1: "Lỗi",
+        text2: "Đã xảy ra lỗi. Vui lòng thử lại.",
         position: "top",
       });
     }
@@ -334,8 +334,8 @@ export default function RoomDetailScreen() {
     if (!authorStore.loggedInUser?.id) {
       Toast.show({
         type: "error",
-        text1: "Login Required",
-        text2: "Please login to send messages",
+        text1: "Yêu cầu đăng nhập",
+        text2: "Vui lòng đăng nhập để gửi tin nhắn",
         position: "top",
       });
       return;
@@ -344,8 +344,8 @@ export default function RoomDetailScreen() {
     if (!landlordData?.id) {
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Landlord information not available",
+        text1: "Lỗi",
+        text2: "Không có thông tin chủ nhà",
         position: "top",
       });
       return;
@@ -373,7 +373,7 @@ export default function RoomDetailScreen() {
       //   console.error("Booking error:", error.response.data);
       Toast.show({
         type: "error",
-        text1: "Booking Failed",
+        text1: "Đặt phòng thất bại",
         text2:
           error.response?.data ||
           "An error occurred while submitting your booking.",
@@ -526,7 +526,7 @@ export default function RoomDetailScreen() {
               <Text style={styles.price}>
                 {(roomData?.priceMonth || 0).toLocaleString("vi-VN")}₫
               </Text>
-              <Text style={styles.month}>/month</Text>
+              <Text style={styles.month}>/tháng</Text>
             </View>
 
             <View style={styles.locationRow}>
@@ -550,23 +550,23 @@ export default function RoomDetailScreen() {
                           year: "numeric",
                         }
                       )
-                    : "Today"}
+                    : "Hôm nay"}
                 </Text>
               </View>
               <View style={styles.metaItem}>
                 <Ionicons name="eye-outline" size={14} color="#6b7280" />
-                <Text style={styles.metaText}>{roomData?.viewCount} views</Text>
+                <Text style={styles.metaText}>{roomData?.viewCount} lượt xem</Text>
               </View>
               <View style={styles.metaItem}>
                 <Ionicons name="heart-outline" size={14} color="#6b7280" />
-                <Text style={styles.metaText}>{countFavorites} favorites</Text>
+                <Text style={styles.metaText}>{countFavorites} yêu thích</Text>
               </View>
             </View>
             <TouchableOpacity
               style={styles.bookingButton}
               onPress={() => setShowBookingModal(true)}
             >
-              <Text style={styles.bookingButtonText}>Booking</Text>
+              <Text style={styles.bookingButtonText}>Đặt phòng</Text>
             </TouchableOpacity>
             {/* Booking Modal */}
             <BookingModal
@@ -586,26 +586,26 @@ export default function RoomDetailScreen() {
             <View style={styles.specCard}>
               <Ionicons name="resize-outline" size={28} color="#4f46e5" />
               <Text style={styles.specNumber}>{roomData?.area}m²</Text>
-              <Text style={styles.specLabel}>Area</Text>
+              <Text style={styles.specLabel}>Diện tích</Text>
             </View>
             <View style={styles.specCard}>
               <Ionicons name="people-outline" size={28} color="#4f46e5" />
               <Text style={styles.specNumber}>{roomData?.maxPeople}</Text>
-              <Text style={styles.specLabel}>Capacity</Text>
+              <Text style={styles.specLabel}>Sức chứa</Text>
             </View>
             <View style={styles.specCard}>
               <Ionicons name="flash-outline" size={28} color="#4f46e5" />
               <Text style={styles.specNumber}>
                 {(roomData?.elecPrice || 0).toLocaleString("vi-VN")}₫
               </Text>
-              <Text style={styles.specLabel}>Electric/kWh</Text>
+              <Text style={styles.specLabel}>Điện/kWh</Text>
             </View>
             <View style={styles.specCard}>
               <Ionicons name="water-outline" size={28} color="#4f46e5" />
               <Text style={styles.specNumber}>
                 {(roomData?.waterPrice || 0).toLocaleString("vi-VN")}₫
               </Text>
-              <Text style={styles.specLabel}>Water/m³</Text>
+              <Text style={styles.specLabel}>Nước/m³</Text>
             </View>
           </View>
 
@@ -613,7 +613,7 @@ export default function RoomDetailScreen() {
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <Ionicons name="home-outline" size={24} color="#4f46e5" />
-              <Text style={styles.sectionTitle}>Convenients</Text>
+              <Text style={styles.sectionTitle}>Tiện nghi</Text>
             </View>
             <View style={styles.conveniencesContainer}>
               {roomData?.convenients?.map((convenience, index) => (
@@ -633,7 +633,7 @@ export default function RoomDetailScreen() {
                 size={24}
                 color="#4f46e5"
               />
-              <Text style={styles.sectionTitle}>Description</Text>
+              <Text style={styles.sectionTitle}>Mô tả</Text>
             </View>
             <Text style={styles.description}>
               {roomData?.description &&
@@ -648,7 +648,7 @@ export default function RoomDetailScreen() {
                 style={styles.expandButton}
               >
                 <Text style={styles.expandButtonText}>
-                  {isDescriptionExpanded ? "Show less" : "Show more"}
+                  {isDescriptionExpanded ? "Thu gọn" : "Xem thêm"}
                 </Text>
               </TouchableOpacity>
             )}
@@ -674,7 +674,7 @@ export default function RoomDetailScreen() {
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <Ionicons name="person-outline" size={24} color="#4f46e5" />
-              <Text style={styles.sectionTitle}>Owner Information</Text>
+              <Text style={styles.sectionTitle}>Thông tin chủ nhà</Text>
             </View>
 
             <View style={styles.ownerCard}>
@@ -696,7 +696,7 @@ export default function RoomDetailScreen() {
               <View style={styles.ownerInfo}>
                 <View style={styles.ownerNameRow}>
                   <Text style={styles.ownerName}>
-                    {landlordData?.fullName || "Owner"}
+                    {landlordData?.fullName || "Chủ nhà"}
                   </Text>
                   {true && (
                     <View style={styles.verifiedBadge}>
@@ -705,7 +705,7 @@ export default function RoomDetailScreen() {
                         size={12}
                         color="#10b981"
                       />
-                      <Text style={styles.verifiedText}>Verified</Text>
+                      <Text style={styles.verifiedText}>Đã xác minh</Text>
                     </View>
                   )}
                 </View>
@@ -714,7 +714,7 @@ export default function RoomDetailScreen() {
                   <View style={styles.ownerStat}>
                     <Ionicons name="home-outline" size={14} color="#6b7280" />
                     <Text style={styles.ownerStatText}>
-                      {landlordData?.amountPost || 0} Listings
+                      {landlordData?.amountPost || 0} tin đăng
                     </Text>
                   </View>
                   <View style={styles.ownerStat}>
@@ -724,7 +724,7 @@ export default function RoomDetailScreen() {
                       color="#6b7280"
                     />
                     <Text style={styles.ownerStatText}>
-                      Since {landlordData?.createDate || "N/A"}
+                      Từ {landlordData?.createDate || "N/A"}
                     </Text>
                   </View>
                 </View>
@@ -738,7 +738,7 @@ export default function RoomDetailScreen() {
                   </View>
                   <View style={styles.ownerStatus}>
                     <View style={styles.offlineDot} />
-                    <Text style={styles.ownerStatusText}>Offline</Text>
+                    <Text style={styles.ownerStatusText}>Ngoại tuyến</Text>
                   </View>
                 </View>
               </View>
@@ -770,7 +770,7 @@ export default function RoomDetailScreen() {
               isFavorite && styles.favoriteButtonTextActive,
             ]}
           >
-            {isFavorite ? "Favorited" : "Favorite"}
+            {isFavorite ? "Đã thích" : "Yêu thích"}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity

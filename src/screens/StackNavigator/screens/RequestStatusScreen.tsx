@@ -158,8 +158,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
     if (!updateDescription.trim()) {
       Toast.show({
         type: "error",
-        text1: "Validation Error",
-        text2: "Please enter a description",
+        text1: "Lỗi xác thực",
+        text2: "Vui lòng nhập mô tả",
       });
       return;
     }
@@ -198,8 +198,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
 
       Toast.show({
         type: "success",
-        text1: "Success",
-        text2: "Request updated successfully",
+        text1: "Thành công",
+        text2: "Cập nhật yêu cầu thành công",
       });
 
       // Close modal
@@ -213,11 +213,11 @@ const RequestStatusScreen = ({ navigation }: Props) => {
       console.error("Error data:", error.response?.data);
       Toast.show({
         type: "error",
-        text1: "Update Failed",
+        text1: "Cập nhật thất bại",
         text2:
           error.response?.data?.message ||
           error.message ||
-          "Failed to update request",
+          "Không thể cập nhật yêu cầu",
       });
     } finally {
       setUpdating(false);
@@ -292,8 +292,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
         <View style={styles.detailRow}>
           <Ionicons name="calendar" size={18} color="#666" />
           <Text style={styles.detailText}>
-            Created:
-            {new Date(request.createdDate).toLocaleDateString("en-US", {
+            Tạo lúc:
+            {new Date(request.createdDate).toLocaleDateString("vi-VN", {
               year: "numeric",
               month: "short",
               day: "numeric",
@@ -337,7 +337,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
               request.status !== 0 && styles.updateButtonTextDisabled,
             ]}
           >
-            Update
+            Cập nhật
           </Text>
         </TouchableOpacity>
       </View>
@@ -353,7 +353,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
         >
           <Ionicons name="arrow-back" size={24} color="#333" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Request Status</Text>
+        <Text style={styles.headerTitle}>Trạng thái yêu cầu</Text>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -371,14 +371,14 @@ const RequestStatusScreen = ({ navigation }: Props) => {
         {loading ? (
           <View style={styles.emptyContainer}>
             <ActivityIndicator size="large" color="#4A90E2" />
-            <Text style={styles.emptyText}>Loading requests...</Text>
+            <Text style={styles.emptyText}>Đang tải yêu cầu...</Text>
           </View>
         ) : requests.length === 0 ? (
           <View style={styles.emptyContainer}>
             <Ionicons name="clipboard-outline" size={80} color="#ccc" />
-            <Text style={styles.emptyText}>No requests found</Text>
+            <Text style={styles.emptyText}>Không tìm thấy yêu cầu</Text>
             <Text style={styles.emptySubtext}>
-              Submit a request to get started
+              Gửi yêu cầu để bắt đầu
             </Text>
           </View>
         ) : (
@@ -392,11 +392,11 @@ const RequestStatusScreen = ({ navigation }: Props) => {
               <View style={styles.paginationContainer}>
                 <View style={styles.paginationInfo}>
                   <Text style={styles.paginationText}>
-                    Page {currentPage + 1} of {totalPages}
+                    Trang {currentPage + 1} / {totalPages}
                   </Text>
                   <Text style={styles.paginationSubtext}>
-                    {totalRecords} total
-                    {totalRecords === 1 ? "request" : "requests"}
+                    Tổng {totalRecords}
+                    {totalRecords === 1 ? " yêu cầu" : " yêu cầu"}
                   </Text>
                 </View>
 
@@ -421,7 +421,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
                           styles.paginationButtonTextDisabled,
                       ]}
                     >
-                      Previous
+                      Trước
                     </Text>
                   </TouchableOpacity>
 
@@ -441,7 +441,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
                           styles.paginationButtonTextDisabled,
                       ]}
                     >
-                      Next
+                      Sau
                     </Text>
                     <Ionicons
                       name="chevron-forward"
@@ -466,7 +466,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Update Request</Text>
+              <Text style={styles.modalTitle}>Cập nhật yêu cầu</Text>
               <TouchableOpacity onPress={handleCloseModal}>
                 <Ionicons name="close" size={24} color="#333" />
               </TouchableOpacity>
@@ -475,7 +475,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
             <ScrollView style={styles.modalBody}>
               {/* Room Title */}
               <View style={styles.modalSection}>
-                <Text style={styles.modalLabel}>Room</Text>
+                <Text style={styles.modalLabel}>Phòng</Text>
                 <Text style={styles.modalReadOnlyText}>
                   {selectedRequest?.roomTitle || "N/A"}
                 </Text>
@@ -483,10 +483,10 @@ const RequestStatusScreen = ({ navigation }: Props) => {
 
               {/* Description Input */}
               <View style={styles.modalSection}>
-                <Text style={styles.modalLabel}>Description *</Text>
+                <Text style={styles.modalLabel}>Mô tả *</Text>
                 <TextInput
                   style={styles.modalTextArea}
-                  placeholder="Enter request description..."
+                  placeholder="Nhập mô tả yêu cầu..."
                   placeholderTextColor="#999"
                   value={updateDescription}
                   onChangeText={setUpdateDescription}
@@ -498,14 +498,14 @@ const RequestStatusScreen = ({ navigation }: Props) => {
 
               {/* Image Picker */}
               <View style={styles.modalSection}>
-                <Text style={styles.modalLabel}>Image (Optional)</Text>
+                <Text style={styles.modalLabel}>Hình ảnh (Tùy chọn)</Text>
 
                 {/* Current Image Display */}
                 {selectedRequest?.imageUrl &&
                   !selectedImage?.startsWith("file://") && (
                     <View style={styles.currentImageContainer}>
                       <Text style={styles.currentImageLabel}>
-                        Current image:
+                        Hình ảnh hiện tại:
                       </Text>
                       <Image
                         source={{
@@ -524,8 +524,8 @@ const RequestStatusScreen = ({ navigation }: Props) => {
                   <Ionicons name="image-outline" size={28} color="#4A90E2" />
                   <Text style={styles.imagePickerText}>
                     {selectedImage?.startsWith("file://")
-                      ? "Change Image"
-                      : "Select New Image"}
+                      ? "Đổi hình ảnh"
+                      : "Chọn hình ảnh mới"}
                   </Text>
                 </TouchableOpacity>
 
@@ -533,7 +533,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
                 {selectedImage?.startsWith("file://") && (
                   <View style={styles.imagePreviewContainer}>
                     <Text style={styles.newImageLabel}>
-                      New image selected:
+                      Hình ảnh mới đã chọn:
                     </Text>
                     <Image
                       source={{ uri: selectedImage }}
@@ -554,7 +554,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
 
               {/* Current Status */}
               <View style={styles.modalSection}>
-                <Text style={styles.modalLabel}>Status</Text>
+                <Text style={styles.modalLabel}>Trạng thái</Text>
                 <View
                   style={[
                     styles.statusBadge,
@@ -584,7 +584,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
                 onPress={handleCloseModal}
                 disabled={updating}
               >
-                <Text style={styles.modalCancelButtonText}>Cancel</Text>
+                <Text style={styles.modalCancelButtonText}>Hủy</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[
@@ -599,7 +599,7 @@ const RequestStatusScreen = ({ navigation }: Props) => {
                 ) : (
                   <>
                     <Ionicons name="checkmark" size={22} color="#fff" />
-                    <Text style={styles.modalSubmitButtonText}>Update</Text>
+                    <Text style={styles.modalSubmitButtonText}>Cập nhật</Text>
                   </>
                 )}
               </TouchableOpacity>

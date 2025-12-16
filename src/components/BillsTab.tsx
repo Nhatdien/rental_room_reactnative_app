@@ -121,16 +121,16 @@ const BillsTab: React.FC<BillsTabProps> = ({
       );
       Toast.show({
         type: "success",
-        text1: "Payment confirmed",
-        text2: "Your payment is being confirmed by the landlord.",
+        text1: "Xác nhận thanh toán",
+        text2: "Thanh toán của bạn đang được chủ nhà xác nhận.",
       });
       setBills(updatedBills);
       setPaymentModal(false);
     } else {
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Failed to confirm payment. Please try again.",
+        text1: "Lỗi",
+        text2: "Không thể xác nhận thanh toán. Vui lòng thử lại.",
       });
     }
   };
@@ -245,7 +245,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
             color="#6366f1"
           />
           <Text style={styles.summaryValue}>{totalBills}</Text>
-          <Text style={styles.summaryLabel}>Total Bills</Text>
+          <Text style={styles.summaryLabel}>Tổng hóa đơn</Text>
         </View>
         <View style={styles.summaryCard}>
           <MaterialCommunityIcons
@@ -256,7 +256,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
           <Text style={[styles.summaryValue, { color: "#22c55e" }]}>
             {paidBills}
           </Text>
-          <Text style={styles.summaryLabel}>Paid</Text>
+          <Text style={styles.summaryLabel}>Đã thanh toán</Text>
         </View>
         <View style={styles.summaryCard}>
           <MaterialCommunityIcons
@@ -267,7 +267,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
           <Text style={[styles.summaryValue, { color: "#f59e0b" }]}>
             {pendingBills}
           </Text>
-          <Text style={styles.summaryLabel}>Pending</Text>
+          <Text style={styles.summaryLabel}>Chưa thanh toán</Text>
         </View>
         <View style={styles.summaryCard}>
           <MaterialCommunityIcons
@@ -278,7 +278,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
           <Text style={[styles.summaryValue, { color: "#2563eb" }]}>
             {confirmingBills}
           </Text>
-          <Text style={styles.summaryLabel}>Confirming</Text>
+          <Text style={styles.summaryLabel}>Đang xác nhận</Text>
         </View>
       </View>
 
@@ -292,7 +292,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
               color="#f59e0b"
             />
             <View style={styles.unpaidInfo}>
-              <Text style={styles.unpaidLabel}>Unpaid Amount</Text>
+              <Text style={styles.unpaidLabel}>Số tiền chưa thanh toán</Text>
               <Text style={styles.unpaidValue}>{formatVND(unpaidAmount)}</Text>
             </View>
           </View>
@@ -300,7 +300,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
       )}
       {/* Filter Buttons */}
       <View style={styles.filterSection}>
-        <Text style={styles.sectionTitle}>Bills History</Text>
+        <Text style={styles.sectionTitle}>Lịch sử hóa đơn</Text>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -331,7 +331,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
       {/* Bills List */}
       {filteredBills.length === 0 ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyStateText}>No bills to display.</Text>
+          <Text style={styles.emptyStateText}>Không có hóa đơn để hiển thị.</Text>
         </View>
       ) : (
         filteredBills.map((bill) => (
@@ -377,7 +377,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
                     color="#f59e0b"
                   />
                   <View style={styles.detailText}>
-                    <Text style={styles.detailLabel}>Electricity</Text>
+                    <Text style={styles.detailLabel}>Tiền điện</Text>
                     <Text style={styles.detailValue}>
                       {formatVND(bill.electricityFee)}
                     </Text>
@@ -396,7 +396,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
                     color="#3b82f6"
                   />
                   <View style={styles.detailText}>
-                    <Text style={styles.detailLabel}>Water</Text>
+                    <Text style={styles.detailLabel}>Tiền nước</Text>
                     <Text style={styles.detailValue}>
                       {formatVND(bill.waterFee)}
                     </Text>
@@ -418,7 +418,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
                     color="#8b5cf6"
                   />
                   <View style={styles.detailText}>
-                    <Text style={styles.detailLabel}>Service</Text>
+                    <Text style={styles.detailLabel}>Phí dịch vụ</Text>
                     <Text style={styles.detailValue}>
                       {formatVND(bill.serviceFee)}
                     </Text>
@@ -434,7 +434,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
                       color="#dc2626"
                     />
                     <View style={styles.detailText}>
-                      <Text style={styles.detailLabel}>Other Fee</Text>
+                      <Text style={styles.detailLabel}>Phí khác</Text>
                       <Text style={styles.detailValue}>
                         {formatVND(bill.damageFee)}
                       </Text>
@@ -453,7 +453,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
             {/* Footer */}
             <View style={styles.billFooter}>
               <View style={styles.totalSection}>
-                <Text style={styles.totalLabel}>Total Amount</Text>
+                <Text style={styles.totalLabel}>Tổng tiền</Text>
                 <Text style={styles.totalValue}>
                   {formatVND(bill.totalAmount)}
                 </Text>
@@ -515,7 +515,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
                       bill.status === "PAID" || bill.status === "CONFIRMING"
                     }
                   >
-                    <Text style={styles.payButtonText}>Pay Now</Text>
+                    <Text style={styles.payButtonText}>Thanh toán ngay</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -532,7 +532,7 @@ const BillsTab: React.FC<BillsTabProps> = ({
             size={22}
             color="#6366f1"
           />
-          <Text style={styles.paymentTitle}>Payment Information</Text>
+          <Text style={styles.paymentTitle}>Thông tin thanh toán</Text>
         </View>
         <View style={styles.paymentMethods}>
           <View style={styles.paymentMethod}>
@@ -542,19 +542,19 @@ const BillsTab: React.FC<BillsTabProps> = ({
               color="#22c55e"
             />
             <Text style={styles.paymentMethodText}>
-              Online payment via mobile banking apps
+              Thanh toán trực tuyến qua ứng dụng ngân hàng
             </Text>
           </View>
           <View style={styles.paymentMethod}>
             <MaterialCommunityIcons name="bank" size={18} color="#3b82f6" />
             <Text style={styles.paymentMethodText}>
-              Bank transfer to landlord's account
+              Chuyển khoản đến tài khoản chủ nhà
             </Text>
           </View>
           <View style={styles.paymentMethod}>
             <MaterialCommunityIcons name="cash" size={18} color="#f59e0b" />
             <Text style={styles.paymentMethodText}>
-              Cash payment (contact landlord)
+              Thanh toán tiền mặt (liên hệ chủ nhà)
             </Text>
           </View>
         </View>
@@ -565,8 +565,8 @@ const BillsTab: React.FC<BillsTabProps> = ({
             color="#ef4444"
           />
           <Text style={styles.paymentNoteText}>
-            Please pay your bills before the due date to avoid late fees.
-            Contact your landlord if you have any payment issues.
+            Vui lòng thanh toán hóa đơn trước hạn để tránh phí trễ hạn.
+            Liên hệ chủ nhà nếu bạn có bất kỳ vấn đề nào về thanh toán.
           </Text>
         </View>
       </View>

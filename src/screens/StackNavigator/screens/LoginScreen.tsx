@@ -31,12 +31,12 @@ const schema = yup
   .object({
     username: yup
       .string()
-      .min(3, "Username must be at least 3 characters")
-      .required("Please enter phone number or email"),
+      .min(3, "Tên đăng nhập phải có ít nhất 3 ký tự")
+      .required("Vui lòng nhập số điện thoại hoặc email"),
     password: yup
       .string()
-      .min(6, "Password must be at least 6 characters")
-      .required("Please enter your password"),
+      .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
+      .required("Vui lòng nhập mật khẩu"),
   })
   .required();
 
@@ -248,8 +248,8 @@ const LoginScreen: React.FC = () => {
               resizeMode="contain"
             />
 
-            <Text style={styles.title}>Welcome to Ant</Text>
-            <Text style={styles.subtitle}>Login to continue</Text>
+            <Text style={styles.title}>Chào mừng đến với Ant</Text>
+            <Text style={styles.subtitle}>Đăng nhập để tiếp tục</Text>
 
             {/* Using native Toast (Android) or Alert (iOS) to show errors */}
 
@@ -260,7 +260,7 @@ const LoginScreen: React.FC = () => {
                 render={({ field: { onChange, value }, fieldState }) => (
                   <>
                     <TextInput
-                      placeholder="Enter Username"
+                      placeholder="Nhập tên đăng nhập"
                       placeholderTextColor="#9aa0a6"
                       style={[
                         styles.input,
@@ -300,7 +300,7 @@ const LoginScreen: React.FC = () => {
                   <>
                     <View style={styles.passwordRow}>
                       <TextInput
-                        placeholder="Password"
+                        placeholder="Mật khẩu"
                         placeholderTextColor="#9aa0a6"
                         style={[
                           styles.input,
@@ -355,20 +355,20 @@ const LoginScreen: React.FC = () => {
                       remember ? styles.checkboxChecked : null,
                     ]}
                   />
-                  <Text style={styles.rememberText}>Remember me</Text>
+                  <Text style={styles.rememberText}>Ghi nhớ đăng nhập</Text>
                 </TouchableOpacity>
 
                 {/* <TouchableOpacity
                   onPress={() => navigation.navigate("LoginHelp")}
                 >
-                  <Text style={styles.forgot}>Forgot password?</Text>
+                  <Text style={styles.forgot}>Quên mật khẩu?</Text>
                 </TouchableOpacity> */}
               </View>
               <TouchableOpacity
                 style={styles.loginBtn}
                 onPress={handleSubmit(onSubmit)}
               >
-                <Text style={styles.loginText}>Login</Text>
+                <Text style={styles.loginText}>Đăng nhập</Text>
               </TouchableOpacity>
               {/* <TouchableOpacity
                 style={styles.googleBtn}
@@ -389,15 +389,15 @@ const LoginScreen: React.FC = () => {
                     style={styles.googleLogo}
                   />
                 </View>
-                <Text style={styles.googleText}>Sign in with Google</Text>
+                <Text style={styles.googleText}>Đăng nhập với Google</Text>
               </TouchableOpacity>
 
               {/* <View style={styles.signUpRow}>
-                <Text style={styles.noAcc}>Don't have an account?</Text>
+                <Text style={styles.noAcc}>Chưa có tài khoản?</Text>
                 <TouchableOpacity
                   onPress={() => navigation.navigate("Register")}
                 >
-                  <Text style={styles.signUp}> Sign up now</Text>
+                  <Text style={styles.signUp}> Đăng ký ngay</Text>
                 </TouchableOpacity>
               </View> */}
 
@@ -406,12 +406,12 @@ const LoginScreen: React.FC = () => {
               <Text
                 style={{ color: "#cbd5df", textAlign: "center", marginTop: 12 }}
               >
-                Don't have an account?
+                Chưa có tài khoản?
                 <Text
                   style={{ color: "#fff", fontWeight: "700" }}
                   onPress={() => navigation.navigate("RegisterScreen")}
                 >
-                  Sign up now
+                  {" "}Đăng ký ngay
                 </Text>
               </Text>
             </View>

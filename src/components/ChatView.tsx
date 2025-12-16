@@ -458,9 +458,9 @@ export const ChatView: React.FC<ChatViewProps> = ({
             ListEmptyComponent={
               <View style={styles.emptyContainer}>
                 <Icon name="message-text-outline" size={64} color="#d1d5db" />
-                <Text style={styles.emptyText}>No messages yet</Text>
+                <Text style={styles.emptyText}>Chưa có tin nhắn</Text>
                 <Text style={styles.emptySubText}>
-                  Start a conversation with {partnerName}
+                  Bắt đầu cuộc trò chuyện với {partnerName}
                 </Text>
               </View>
             }
@@ -482,7 +482,7 @@ export const ChatView: React.FC<ChatViewProps> = ({
           <TextInput
             value={text}
             onChangeText={setText}
-            placeholder="Write a message..."
+            placeholder="Nhập tin nhắn..."
             placeholderTextColor="#9ca3af"
             style={styles.input}
             multiline

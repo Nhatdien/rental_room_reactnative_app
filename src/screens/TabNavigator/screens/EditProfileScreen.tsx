@@ -333,7 +333,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
   };
 
   const handleUploadImage = () => {
-    Alert.alert("Select Image", "Choose an option", [
+    Alert.alert("Chọn ảnh", "Chọn một tùy chọn", [
       {
         text: "Camera",
         onPress: openCamera,
@@ -428,7 +428,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
             <TouchableOpacity onPress={handleCancel} style={styles.closeButton}>
               <Icon name="x" size={24} color="#64748b" />
             </TouchableOpacity>
-            <Text style={styles.headerTitle}>Edit Personal Information</Text>
+            <Text style={styles.headerTitle}>Chỉnh sửa thông tin cá nhân</Text>
             <View style={styles.placeholder} />
           </View>
 
@@ -453,7 +453,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
               onPress={handleUploadImage}
             >
               <Icon name="upload" size={16} color="#64748b" />
-              <Text style={styles.uploadText}>Upload Image</Text>
+              <Text style={styles.uploadText}>Tải ảnh lên</Text>
             </TouchableOpacity>
           </View>
 
@@ -462,7 +462,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
             {/* Full Name */}
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>
-                <Text style={styles.required}>* </Text>Full Name
+                <Text style={styles.required}>* </Text>Họ và tên
               </Text>
               <Controller
                 control={control}
@@ -487,7 +487,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                         styles.input,
                         errors.fullName && styles.inputError,
                       ]}
-                      placeholder="Enter your full name"
+                      placeholder="Nhập họ và tên"
                       placeholderTextColor="#9ca3af"
                       value={value}
                       onChangeText={onChange}
@@ -503,7 +503,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
 
             {/* Phone Number */}
             <View style={styles.inputGroup}>
-              <Text style={styles.inputLabel}>Phone Number</Text>
+              <Text style={styles.inputLabel}>Số điện thoại</Text>
               <Controller
                 control={control}
                 name="phoneNumber"
@@ -520,7 +520,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                         styles.input,
                         errors.phoneNumber && styles.inputError,
                       ]}
-                      placeholder="Enter your phone number"
+                      placeholder="Nhập số điện thoại"
                       placeholderTextColor="#9ca3af"
                       value={value}
                       onChangeText={onChange}
@@ -562,7 +562,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                     />
                     <TextInput
                       style={[styles.input, errors.email && styles.inputError]}
-                      placeholder="Enter your email"
+                      placeholder="Nhập email"
                       placeholderTextColor="#9ca3af"
                       value={value}
                       onChangeText={onChange}
@@ -584,7 +584,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
               <View style={styles.locationRow}>
                 {/* Province */}
                 <View style={styles.locationItem}>
-                  <Text style={styles.inputLabel}>Province</Text>
+                  <Text style={styles.inputLabel}>Tỉnh/Thành phố</Text>
                   <Controller
                     control={control}
                     name="province"
@@ -608,7 +608,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                             !value && styles.placeholderText,
                           ]}
                         >
-                          {value || "Select Province"}
+                          {value || "Chọn Tỉnh/Thành phố"}
                         </Text>
                         <Icon name="chevron-down" size={16} color="#64748b" />
                       </TouchableOpacity>
@@ -623,7 +623,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
 
                 {/* District */}
                 <View style={styles.locationItem}>
-                  <Text style={styles.inputLabel}>District</Text>
+                  <Text style={styles.inputLabel}>Quận/Huyện</Text>
                   <Controller
                     control={control}
                     name="district"
@@ -641,7 +641,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                             !value && styles.placeholderText,
                           ]}
                         >
-                          {value || "Select District"}
+                          {value || "Chọn Quận/Huyện"}
                         </Text>
                         <Icon name="chevron-down" size={16} color="#64748b" />
                       </TouchableOpacity>
@@ -657,7 +657,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
 
               {/* Ward Row - Full Width */}
               <View style={styles.inputGroup}>
-                <Text style={styles.inputLabel}>Ward</Text>
+                <Text style={styles.inputLabel}>Phường/Xã</Text>
                 <Controller
                   control={control}
                   name="ward"
@@ -675,7 +675,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                           !value && styles.placeholderText,
                         ]}
                       >
-                        {value || "Select Ward"}
+                        {value || "Chọn Phường/Xã"}
                       </Text>
                       <Icon name="chevron-down" size={16} color="#64748b" />
                     </TouchableOpacity>
@@ -689,7 +689,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
 
             {/* Address */}
             <View style={styles.inputGroup}>
-              <Text style={styles.inputLabel}>Address</Text>
+              <Text style={styles.inputLabel}>Địa chỉ</Text>
               <Controller
                 control={control}
                 name="address"
@@ -700,7 +700,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
                       styles.addressInput,
                       errors.address && styles.inputError,
                     ]}
-                    placeholder="Enter your address"
+                    placeholder="Nhập địa chỉ"
                     placeholderTextColor="#9ca3af"
                     value={value}
                     onChangeText={onChange}
@@ -722,7 +722,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
               onPress={handleCancel}
               disabled={isLoading}
             >
-              <Text style={styles.cancelButtonText}>Cancel</Text>
+              <Text style={styles.cancelButtonText}>Hủy</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[
@@ -733,7 +733,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
               disabled={isLoading}
             >
               <Text style={styles.saveButtonText}>
-                {isLoading ? "Saving..." : "Save"}
+                {isLoading ? "Đang lưu..." : "Lưu"}
               </Text>
             </TouchableOpacity>
           </View>
@@ -750,7 +750,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Select Province</Text>
+              <Text style={styles.modalTitle}>Chọn Tỉnh/Thành phố</Text>
               <TouchableOpacity onPress={() => setShowProvinceModal(false)}>
                 <Icon name="x" size={24} color="#64748b" />
               </TouchableOpacity>
@@ -785,7 +785,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Select District</Text>
+              <Text style={styles.modalTitle}>Chọn Quận/Huyện</Text>
               <TouchableOpacity onPress={() => setShowDistrictModal(false)}>
                 <Icon name="x" size={24} color="#64748b" />
               </TouchableOpacity>
@@ -820,7 +820,7 @@ const EditProfileScreen = ({ navigation, route }: Props) => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Select Ward</Text>
+              <Text style={styles.modalTitle}>Chọn Phường/Xã</Text>
               <TouchableOpacity onPress={() => setShowWardModal(false)}>
                 <Icon name="x" size={24} color="#64748b" />
               </TouchableOpacity>

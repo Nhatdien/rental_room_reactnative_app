@@ -90,8 +90,8 @@ const PaymentModal = ({
 
     if (!permissionResult.granted) {
       Alert.alert(
-        "Permission Required",
-        "Please grant camera roll permissions to upload images."
+        "Yêu cầu quyền truy cập",
+        "Vui lòng cấp quyền truy cập thư viện ảnh để tải ảnh lên."
       );
       return;
     }
@@ -116,8 +116,8 @@ const PaymentModal = ({
 
         Toast.show({
           type: "success",
-          text1: "Success",
-          text2: "Bill transfer image uploaded successfully!",
+          text1: "Thành công",
+          text2: "Tải ảnh chuyển khoản thành công!",
         });
       } catch (error: any) {
         console.error("Failed to upload image:", error);
@@ -133,7 +133,7 @@ const PaymentModal = ({
 
         Toast.show({
           type: "error",
-          text1: "Error",
+          text1: "Lỗi",
           text2: errorMessage,
         });
       } finally {
@@ -145,8 +145,8 @@ const PaymentModal = ({
   const handleConfirmPayment = async () => {
     if (!transferConfirmed) {
       Alert.alert(
-        "Confirmation Required",
-        "Please confirm that you have completed the transfer"
+        "Yêu cầu xác nhận",
+        "Vui lòng xác nhận rằng bạn đã hoàn tất chuyển khoản"
       );
       return;
     }
@@ -166,8 +166,8 @@ const PaymentModal = ({
     if (!userEmail) {
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "User email not found",
+        text1: "Lỗi",
+        text2: "Không tìm thấy email người dùng",
       });
       return;
     }
@@ -194,8 +194,8 @@ const PaymentModal = ({
 
       Toast.show({
         type: "success",
-        text1: "Success",
-        text2: "OTP has been sent to your email",
+        text1: "Thành công",
+        text2: "Mã OTP đã được gửi đến email của bạn",
       });
 
       setShowOTPModal(true);
@@ -203,8 +203,8 @@ const PaymentModal = ({
       console.error("Failed to send OTP:", error);
       Toast.show({
         type: "error",
-        text1: "Error",
-        text2: "Failed to send OTP. Please try again",
+        text1: "Lỗi",
+        text2: "Không thể gửi OTP. Vui lòng thử lại",
       });
     } finally {
       setIsSendingOTP(false);
@@ -230,7 +230,7 @@ const PaymentModal = ({
 
       Toast.show({
         type: "error",
-        text1: "Error",
+        text1: "Lỗi",
         text2: errorMessage,
       });
     }
@@ -241,7 +241,7 @@ const PaymentModal = ({
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
           <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>Confirm Deposit</Text>
+            <Text style={styles.modalTitle}>Xác nhận đặt cọc</Text>
             <TouchableOpacity onPress={onClose}>
               <Ionicons name="close" size={24} color="#333" />
             </TouchableOpacity>
@@ -252,35 +252,35 @@ const PaymentModal = ({
               <View style={styles.loadingContainer}>
                 <ActivityIndicator size="large" color="#4A90E2" />
                 <Text style={styles.loadingText}>
-                  Loading payment information...
+                  Đang tải thông tin thanh toán...
                 </Text>
               </View>
             ) : paymentInfo ? (
               <>
                 <Text style={styles.modalSectionTitle}>
-                  Landlord Payment Information
+                  Thông tin thanh toán chủ nhà
                 </Text>
                 <View style={styles.paymentInfoCard}>
                   <View style={styles.paymentInfoRow}>
-                    <Text style={styles.paymentLabel}>Bank Number:</Text>
+                    <Text style={styles.paymentLabel}>Số tài khoản:</Text>
                     <Text style={styles.paymentValue}>
                       {paymentInfo.bankNumber}
                     </Text>
                   </View>
                   <View style={styles.paymentInfoRow}>
-                    <Text style={styles.paymentLabel}>Bank Name:</Text>
+                    <Text style={styles.paymentLabel}>Ngân hàng:</Text>
                     <Text style={styles.paymentValue}>
                       {paymentInfo.bankName}
                     </Text>
                   </View>
                   <View style={styles.paymentInfoRow}>
-                    <Text style={styles.paymentLabel}>Deposit Amount:</Text>
+                    <Text style={styles.paymentLabel}>Số tiền cọc:</Text>
                     <Text style={styles.paymentPrice}>
                       {paymentInfo.depositAmount?.toLocaleString("vi-VN")} ₫
                     </Text>
                   </View>
                   <View style={styles.paymentInfoRow}>
-                    <Text style={styles.paymentLabel}>Owner:</Text>
+                    <Text style={styles.paymentLabel}>Chủ tài khoản:</Text>
                     <Text style={styles.paymentValue}>
                       {paymentInfo.accountHolderName}
                     </Text>
@@ -300,11 +300,11 @@ const PaymentModal = ({
                     style={styles.qrImage}
                     resizeMode="contain"
                   />
-                  <Text style={styles.qrText}>Scan QR code to pay deposit</Text>
+                  <Text style={styles.qrText}>Quét mã QR để thanh toán tiền cọc</Text>
                 </View>
 
                 <Text style={styles.modalSectionTitle}>
-                  Upload Payment Proof{" "}
+                  Tải lên chứng từ thanh toán{" "}
                   <Text style={{ color: "#F44336" }}>*</Text>
                 </Text>
                 <TouchableOpacity
@@ -319,8 +319,8 @@ const PaymentModal = ({
                       <Ionicons name="cloud-upload" size={20} color="#fff" />
                       <Text style={styles.uploadButtonText}>
                         {uploadedImageUri
-                          ? "Change Image"
-                          : "Upload Transfer Bill"}
+                          ? "Đổi ảnh"
+                          : "Tải lên biên lai chuyển khoản"}
                       </Text>
                     </>
                   )}
@@ -344,7 +344,7 @@ const PaymentModal = ({
                       color="#4A90E2"
                     />
                     <Text style={styles.checkboxLabel}>
-                      I confirm that I have completed the transfer
+                      Tôi xác nhận đã hoàn tất chuyển khoản
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -357,7 +357,7 @@ const PaymentModal = ({
                       color="#FF9800"
                     />
                     <Text style={styles.reminderText}>
-                      Please confirm that you have completed the transfer
+                      Vui lòng xác nhận rằng bạn đã hoàn tất chuyển khoản
                     </Text>
                   </View>
                 )}
@@ -377,11 +377,11 @@ const PaymentModal = ({
                     <View style={styles.buttonContent}>
                       <ActivityIndicator size="small" color="#fff" />
                       <Text style={styles.submitButtonText}>
-                        Sending OTP...
+                        Đang gửi OTP...
                       </Text>
                     </View>
                   ) : (
-                    <Text style={styles.submitButtonText}>Confirm Payment</Text>
+                    <Text style={styles.submitButtonText}>Xác nhận thanh toán</Text>
                   )}
                 </TouchableOpacity>
               </>
