@@ -97,7 +97,7 @@ export const useAuthStore = create<AuthState>()(
                 access_token: undefined,
                 refresh_token: undefined,
                 loggedInUser: undefined,
-                error: "No permission",
+                error: "Không có quyền",
               });
               if (onError)
                 onError("Bạn không có quyền truy cập khu vực này.");
@@ -186,7 +186,7 @@ export const useAuthStore = create<AuthState>()(
                 access_token: undefined,
                 refresh_token: undefined,
                 loggedInUser: undefined,
-                error: "No permission",
+                error: "Không có quyền",
               });
               if (onError)
                 onError("Bạn không có quyền truy cập khu vực này.");

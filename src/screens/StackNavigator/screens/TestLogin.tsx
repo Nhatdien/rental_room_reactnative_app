@@ -87,8 +87,8 @@ const TestLogin: React.FC = () => {
         {/* Hiển thị thông tin user nếu login thành công */}
         {userInfo && (
           <View style={styles.userInfo}>
-            <Text style={styles.infoTitle}>✅ Logged In Successfully!</Text>
-            <Text style={styles.infoText}>Name: {userInfo.name}</Text>
+            <Text style={styles.infoTitle}>✅ Đăng nhập thành công!</Text>
+            <Text style={styles.infoText}>Tên: {userInfo.name}</Text>
             <Text style={styles.infoText}>Email: {userInfo.email}</Text>
           </View>
         )}
