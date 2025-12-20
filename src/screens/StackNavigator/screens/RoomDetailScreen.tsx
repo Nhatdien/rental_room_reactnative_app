@@ -284,8 +284,8 @@ export default function RoomDetailScreen() {
           setIsFavorite(false);
           Toast.show({
             type: "success",
-            text1: "Removed from Favorites",
-            text2: "Room removed from your favorites",
+            text1: "Đã xóa khỏi yêu thích",
+            text2: "Phòng đã được xóa khỏi danh sách yêu thích của bạn",
             position: "top",
             visibilityTime: 2000,
           });
@@ -304,8 +304,8 @@ export default function RoomDetailScreen() {
           setIsFavorite(true);
           Toast.show({
             type: "success",
-            text1: "Added to Favorites",
-            text2: "Room added to your favorites",
+            text1: "Đã thêm vào yêu thích",
+            text2: "Phòng đã được thêm vào danh sách yêu thích của bạn",
             position: "top",
             visibilityTime: 2000,
           });
@@ -878,7 +878,7 @@ export default function RoomDetailScreen() {
               "vi-VN"
             )}₫/tháng\n📏 Diện tích: ${roomData.area}m²\n👥 Sức chứa: ${
               roomData.maxPeople
-            } người\n\n🔗 Chi tiết: http://localhost:3000/detail/${roomId}\n\nVui lòng cho tôi biết thêm thông tin. Cảm ơn!`}
+            } người\n\n🔗 Chi tiết: https://next-app-client.onrender.com/detail/${roomId}\n\nVui lòng cho tôi biết thêm thông tin. Cảm ơn!`}
           />
         </Modal>
       )}

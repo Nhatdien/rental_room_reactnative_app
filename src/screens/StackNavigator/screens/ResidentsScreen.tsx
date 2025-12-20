@@ -146,8 +146,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
     if (status !== "granted") {
       Toast.show({
         type: "error",
-        text1: "Permission Denied",
-        text2: "We need camera roll permissions to upload images",
+        text1: "Từ chối quyền truy cập",
+        text2: "Chúng tôi cần quyền truy cập thư viện ảnh để tải ảnh lên",
       });
       return;
     }
@@ -169,8 +169,8 @@ const ResidentsScreen = ({ navigation }: Props) => {
     if (status !== "granted") {
       Toast.show({
         type: "error",
-        text1: "Permission Denied",
-        text2: "We need camera roll permissions to upload images",
+        text1: "Từ chối quyền truy cập",
+        text2: "Chúng tôi cần quyền truy cập thư viện ảnh để tải ảnh lên",
       });
       return;
     }
