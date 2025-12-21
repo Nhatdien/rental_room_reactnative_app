@@ -315,14 +315,14 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
   if (loading) {
     return (
       <View style={styles.section}>
-        <View style={styles.sectionHeader}>
+        {/* <View style={styles.sectionHeader}>
           <MapPin size={24} color="#4f46e5" />
           <Text style={styles.sectionTitle}>Địa điểm lân cận</Text>
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="small" color="#4f46e5" />
           <Text style={styles.loadingText}>Đang tìm kiếm địa điểm...</Text>
-        </View>
+        </View> */}
       </View>
     );
   }

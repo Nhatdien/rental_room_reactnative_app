@@ -110,7 +110,7 @@ export default function RoomDetailScreen() {
         return;
       }
 
-      const shareUrl = `http://localhost:3000/detail/${roomId}`;
+      const shareUrl = `https://next-app-client.onrender.com/detail/${roomId}`;
 
       const result = await Share.share({
         message: shareUrl,
@@ -656,13 +656,13 @@ export default function RoomDetailScreen() {
           </View>
 
           {/* Nearby Places */}
-          {roomData?.id && roomData?.address && (
+          {/* {roomData?.id && roomData?.address && (
             <NearbyPlaces
               address={roomData.address}
               roomId={roomData.id}
               key={roomData.id}
             />
-          )}
+          )} */}
 
           {/* Map */}
           <RoomLocationMap
@@ -774,7 +774,7 @@ export default function RoomDetailScreen() {
             {isFavorite ? "Đã thích" : "Yêu thích"}
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.messageButton}
           onPress={handleMessageLandlord}
         >
@@ -787,7 +787,7 @@ export default function RoomDetailScreen() {
               </Text>
             </View>
           )}
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       {/* Zoom Modal */}
