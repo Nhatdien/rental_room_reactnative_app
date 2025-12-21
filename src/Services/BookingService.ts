@@ -1,5 +1,6 @@
 import apiClient from "../lib/apiClient";
 import { RequestBooking } from "../types/types";
+import { API_URL } from "./Constants";
 
 // Helper function to get auth token and user info
 async function getAuthData() {
@@ -113,7 +114,7 @@ export const uploadBillTransferImage = async (
   } as any);
 
   const response = await fetch(
-    `${apiClient.defaults.baseURL}/bookings/${bookingId}/upload-bill-transfer`,
+    `${API_URL}/bookings/${bookingId}/upload-bill-transfer`,
     {
       method: "POST",
       headers: {
@@ -124,7 +125,7 @@ export const uploadBillTransferImage = async (
   );
 
   if (!response.ok) {
-    const errorData = await response.json();
+    const errorData = await response.json().catch(() => ({}));
     throw new Error(
       errorData?.error ||
         errorData?.message ||

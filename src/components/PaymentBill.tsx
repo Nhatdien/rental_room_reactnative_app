@@ -90,13 +90,11 @@ const PaymentBill = ({
         });
       } catch (error: any) {
         console.error("Failed to upload image:", error);
-        console.error("Upload error details:", error?.response?.data);
+        console.error("Upload error message:", error?.message);
 
         setImageUploadedSuccessfully(false);
 
         const errorMessage =
-          error?.response?.data?.message ||
-          error?.response?.data?.error ||
           error?.message ||
           "Không thể tải ảnh lên";
 

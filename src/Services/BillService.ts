@@ -67,7 +67,7 @@ export const uploadBillTransferImage = async (
   } as any);
 
   const response = await fetch(
-    `${apiClient.defaults.baseURL}/bills/${billId}/upload-image-proof`,
+    `${API_URL}/bills/${billId}/upload-image-proof`,
     {
       method: "POST",
       headers: {
@@ -76,7 +76,29 @@ export const uploadBillTransferImage = async (
       body: formData,
     }
   );
-  return response;
+
+  if (!response.ok) {
+    // Try to parse error as JSON, fallback to text
+    let errorData;
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      errorData = await response.json().catch(() => ({}));
+    } else {
+      errorData = await response.text();
+    }
+    throw new Error(
+      (typeof errorData === "object" ? errorData?.error || errorData?.message : errorData) ||
+      "Failed to upload bill transfer image"
+    );
+  }
+
+  // Handle non-JSON success response
+  const contentType = response.headers.get("content-type");
+  if (contentType && contentType.includes("application/json")) {
+    return response.json();
+  } else {
+    return response.text();
+  }
 };
 
 export const setStatusBill = async (

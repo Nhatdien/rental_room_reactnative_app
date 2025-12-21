@@ -492,8 +492,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
         Toast.show({
           type: "success",
-          text1: "Location Saved",
-          text2: "Saved using coordinates. Searching nearby rooms...",
+          text1: "Đã lưu vị trí",
+          text2: "Đã lưu bằng tọa độ. Đang tìm kiếm phòng gần đây...",
           position: "top",
           visibilityTime: 3000,
         });
@@ -576,7 +576,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       } else {
         Toast.show({
           type: "error",
-          text1: "Error",
+          text1: "Lỗi",
           text2: "Không thể lấy vị trí hiện tại. Vui lòng thử lại.",
           position: "top",
         });

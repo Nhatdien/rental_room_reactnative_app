@@ -315,14 +315,14 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
   if (loading) {
     return (
       <View style={styles.section}>
-        <View style={styles.sectionHeader}>
+        {/* <View style={styles.sectionHeader}>
           <MapPin size={24} color="#4f46e5" />
           <Text style={styles.sectionTitle}>Địa điểm lân cận</Text>
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="small" color="#4f46e5" />
           <Text style={styles.loadingText}>Đang tìm kiếm địa điểm...</Text>
-        </View>
+        </View> */}
       </View>
     );
   }
@@ -426,7 +426,7 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
                     style={styles.showMoreButton}
                   >
                     <Text style={styles.showMoreText}>
-                      +{places.length - 1} more
+                      +{places.length - 1} địa điểm khác
                     </Text>
                   </TouchableOpacity>
                 )}
@@ -437,10 +437,10 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
           {/* Summary */}
           <View style={styles.summaryContainer}>
             <Text style={styles.summaryText}>
-              <Text style={styles.summaryBold}>{totalPlaces} places</Text>
+              <Text style={styles.summaryBold}>{totalPlaces} địa điểm</Text>
               <Text style={styles.summarySeparator}> • </Text>
               <Text>
-                Nearest:
+                Gần nhất:
                 {nearestDistance !== null
                   ? formatDistance(nearestDistance)
                   : "N/A"}

@@ -121,13 +121,11 @@ const PaymentModal = ({
         });
       } catch (error: any) {
         console.error("Failed to upload image:", error);
-        console.error("Upload error details:", error?.response?.data);
+        console.error("Upload error message:", error?.message);
 
         setImageUploadedSuccessfully(false);
 
         const errorMessage =
-          error?.response?.data?.message ||
-          error?.response?.data?.error ||
           error?.message ||
           "Không thể tải ảnh lên";
 
@@ -220,8 +218,10 @@ const PaymentModal = ({
       onClose();
     } catch (error: any) {
       console.error("Failed to confirm payment:", error);
-      console.error("Error response:", error?.response?.data);
+      console.error("Error response:", error?.response);
+      console.error("Error message:", error?.message);
 
+      // Handle both Axios errors (error.response.data) and regular errors (error.message)
       const errorMessage =
         error?.response?.data?.message ||
         error?.response?.data?.error ||

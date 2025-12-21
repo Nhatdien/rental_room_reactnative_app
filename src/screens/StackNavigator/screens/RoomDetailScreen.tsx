@@ -28,6 +28,7 @@ import {
 } from "../../../types/types";
 import { fetchRoomDetail } from "../../../Services/RoomService";
 import { URL_IMAGE } from "../../../Services/Constants";
+import { translateFacility } from "../../../utils/facilityTranslations";
 import { getLandlordByRoomId } from "../../../Services/LandLordService";
 import RoomLocationMap from "../../../components/RoomLocationMap";
 import { creatBooking } from "../../../Services/BookingService";
@@ -109,7 +110,7 @@ export default function RoomDetailScreen() {
         return;
       }
 
-      const shareUrl = `http://localhost:3000/detail/${roomId}`;
+      const shareUrl = `https://next-app-client.onrender.com/detail/${roomId}`;
 
       const result = await Share.share({
         message: shareUrl,
@@ -284,8 +285,8 @@ export default function RoomDetailScreen() {
           setIsFavorite(false);
           Toast.show({
             type: "success",
-            text1: "Removed from Favorites",
-            text2: "Room removed from your favorites",
+            text1: "Đã xóa khỏi yêu thích",
+            text2: "Phòng đã được xóa khỏi danh sách yêu thích của bạn",
             position: "top",
             visibilityTime: 2000,
           });
@@ -304,8 +305,8 @@ export default function RoomDetailScreen() {
           setIsFavorite(true);
           Toast.show({
             type: "success",
-            text1: "Added to Favorites",
-            text2: "Room added to your favorites",
+            text1: "Đã thêm vào yêu thích",
+            text2: "Phòng đã được thêm vào danh sách yêu thích của bạn",
             position: "top",
             visibilityTime: 2000,
           });
@@ -619,7 +620,7 @@ export default function RoomDetailScreen() {
               {roomData?.convenients?.map((convenience, index) => (
                 <View key={index} style={styles.convenienceItem}>
                   <Ionicons name="checkmark-circle" size={16} color="#10b981" />
-                  <Text style={styles.convenienceText}>{convenience.name}</Text>
+                  <Text style={styles.convenienceText}>{translateFacility(convenience.name)}</Text>
                 </View>
               ))}
             </View>
@@ -655,13 +656,13 @@ export default function RoomDetailScreen() {
           </View>
 
           {/* Nearby Places */}
-          {roomData?.id && roomData?.address && (
+          {/* {roomData?.id && roomData?.address && (
             <NearbyPlaces
               address={roomData.address}
               roomId={roomData.id}
               key={roomData.id}
             />
-          )}
+          )} */}
 
           {/* Map */}
           <RoomLocationMap
@@ -878,7 +879,7 @@ export default function RoomDetailScreen() {
               "vi-VN"
             )}₫/tháng\n📏 Diện tích: ${roomData.area}m²\n👥 Sức chứa: ${
               roomData.maxPeople
-            } người\n\n🔗 Chi tiết: http://localhost:3000/detail/${roomId}\n\nVui lòng cho tôi biết thêm thông tin. Cảm ơn!`}
+            } người\n\n🔗 Chi tiết: https://next-app-client.onrender.com/detail/${roomId}\n\nVui lòng cho tôi biết thêm thông tin. Cảm ơn!`}
           />
         </Modal>
       )}
