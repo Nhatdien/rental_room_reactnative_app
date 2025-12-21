@@ -426,7 +426,7 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
                     style={styles.showMoreButton}
                   >
                     <Text style={styles.showMoreText}>
-                      +{places.length - 1} more
+                      +{places.length - 1} địa điểm khác
                     </Text>
                   </TouchableOpacity>
                 )}
@@ -437,10 +437,10 @@ const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ address, roomId }) => {
           {/* Summary */}
           <View style={styles.summaryContainer}>
             <Text style={styles.summaryText}>
-              <Text style={styles.summaryBold}>{totalPlaces} places</Text>
+              <Text style={styles.summaryBold}>{totalPlaces} địa điểm</Text>
               <Text style={styles.summarySeparator}> • </Text>
               <Text>
-                Nearest:
+                Gần nhất:
                 {nearestDistance !== null
                   ? formatDistance(nearestDistance)
                   : "N/A"}

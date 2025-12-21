@@ -28,6 +28,7 @@ import {
 } from "../../../types/types";
 import { fetchRoomDetail } from "../../../Services/RoomService";
 import { URL_IMAGE } from "../../../Services/Constants";
+import { translateFacility } from "../../../utils/facilityTranslations";
 import { getLandlordByRoomId } from "../../../Services/LandLordService";
 import RoomLocationMap from "../../../components/RoomLocationMap";
 import { creatBooking } from "../../../Services/BookingService";
@@ -619,7 +620,7 @@ export default function RoomDetailScreen() {
               {roomData?.convenients?.map((convenience, index) => (
                 <View key={index} style={styles.convenienceItem}>
                   <Ionicons name="checkmark-circle" size={16} color="#10b981" />
-                  <Text style={styles.convenienceText}>{convenience.name}</Text>
+                  <Text style={styles.convenienceText}>{translateFacility(convenience.name)}</Text>
                 </View>
               ))}
             </View>
