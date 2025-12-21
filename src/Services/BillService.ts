@@ -78,15 +78,27 @@ export const uploadBillTransferImage = async (
   );
 
   if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
+    // Try to parse error as JSON, fallback to text
+    let errorData;
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      errorData = await response.json().catch(() => ({}));
+    } else {
+      errorData = await response.text();
+    }
     throw new Error(
-      errorData?.error ||
-        errorData?.message ||
-        "Failed to upload bill transfer image"
+      (typeof errorData === "object" ? errorData?.error || errorData?.message : errorData) ||
+      "Failed to upload bill transfer image"
     );
   }
 
-  return response.json();
+  // Handle non-JSON success response
+  const contentType = response.headers.get("content-type");
+  if (contentType && contentType.includes("application/json")) {
+    return response.json();
+  } else {
+    return response.text();
+  }
 };
 
 export const setStatusBill = async (
