@@ -38,8 +38,8 @@ const MapScreen: React.FC = () => {
   const [showRoomList, setShowRoomList] = useState(false);
   const [favoriteRoomIds, setFavoriteRoomIds] = useState<string[]>([]);
   const [mapRegion, setMapRegion] = useState({
-    latitude: 16.0544,
-    longitude: 108.2022,
+    latitude: 20.980731240408417,
+    longitude: 105.79618558089754,
   });
   const [roomInMap, setRoomInMap] = useState<ListRoomInMap[]>([]);
 

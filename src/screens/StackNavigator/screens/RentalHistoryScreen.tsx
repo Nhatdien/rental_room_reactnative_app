@@ -232,7 +232,7 @@ const RentalHistoryScreen = ({ navigation }: Props) => {
         {item.isRemoved === 1 && (
           <View style={styles.removedBadge}>
             <Ionicons name="warning" size={16} color="#F44336" />
-            <Text style={styles.removedText}>Phòng không khả dụng</Text>
+            <Text style={styles.removedText}>Đã xóa</Text>
           </View>
         )}
 

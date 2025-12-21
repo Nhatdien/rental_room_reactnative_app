@@ -773,7 +773,7 @@ export default function RoomDetailScreen() {
             {isFavorite ? "Đã thích" : "Yêu thích"}
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.messageButton}
           onPress={handleMessageLandlord}
         >
@@ -786,7 +786,7 @@ export default function RoomDetailScreen() {
               </Text>
             </View>
           )}
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       {/* Zoom Modal */}

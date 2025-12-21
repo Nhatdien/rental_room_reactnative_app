@@ -354,7 +354,7 @@ const RentalRoomView = ({ navigation, route }: Props) => {
           <View style={styles.warningCard}>
             <Ionicons name="warning" size={22} color="#F44336" />
             <Text style={styles.warningText}>
-              Phòng này không còn khả dụng
+              Đã bị xóa
             </Text>
           </View>
         )}
